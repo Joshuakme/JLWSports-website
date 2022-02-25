@@ -14,9 +14,6 @@ nav {
   align-items: center;
 }
 
-nav img {
-  border: 1px solid black;
-}
 
 nav ul {
   display: flex;
@@ -26,10 +23,8 @@ nav ul {
 nav li {
   margin: 10px;
   padding: 0.5rem 1rem;
-  border: 1px solid black;
 }
 
 nav form {
   width: 25vw;
-  border: 1px solid black;
 }
