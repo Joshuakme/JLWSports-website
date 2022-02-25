@@ -1,1 +1,35 @@
 /* Basic Style */
+body {
+  margin: 0% 2.5%;
+}
+
+header,
+footer {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav img {
+  border: 1px solid black;
+}
+
+nav ul {
+  display: flex;
+  width: 60vw;
+}
+
+nav li {
+  margin: 10px;
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+}
+
+nav form {
+  width: 25vw;
+  border: 1px solid black;
+}
