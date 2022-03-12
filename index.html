@@ -7,24 +7,69 @@
     <meta name="description" content="JLBSprots Malaysia Official Online Store">
     <meta name="keywords" content="JBLS, Sports, Online Store">
     <title>JLWSports Malaysia | Sports Heaven</title>
-    <link rel="icon" type="image/x-icon" href="#">
+    <link rel="icon" type="image/x-icon" href="./assets/img/nav_logo.png">
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/base.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
-    <header>
-        <img src="" alt="JLWS Logo">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="product/product.html">Products</a></li>
-                <li><a href="support/support.html">Supports</a></li>
-                <li><a href="aboutUs.html">About Us</a></li>
-                <li><a href="cart/cart.html">Cart</a></li>
+    <header>      
+        <nav>   
+            <img src="./assets/img/nav_logo.png" alt="JLWS Logo">      
+            <ul class="navLink-wrapper">
+                <li><a href="#index.html">Home</a></li>
+                <li><a href="#product/product.html">Product</a></li>
+                <li><a href="#support/support.html">Support</a></li>
+                <li><a href="#aboutUs.html">About Us</a></li>
+                <li><a href="#cart/cart.html">Cart</a></li>
             </ul>
+            <!-- <input type="text" name="" id=""> -->
+            <img id="search-btn" src="./assets/img/icons/search.svg" alt="search-icon">
         </nav>
     </header>
+
+    <section class="content-wrapper"></section>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="newsletter-subscribe-wrapper">
+                    <label for="subscribe-email"><span class="highlight">Subscribe</span> for our Newsletter</label>
+                    <form action="#" method="post">
+                        <input type="email" name="email" id="subscribe-email" placeholder="example@email.com">
+                        <button id="subscribe-btn" disabled>Register</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="social-media-wrapper">
+                <a href="#"><img src="./assets/img/icons/facebook.svg" alt="Facebook Icon"></a>
+                <a href="#"><img src="./assets/img/icons/instagram.svg" alt="Instagram Icon"></a>
+                <a href="#"><img src="./assets/img/icons/twitter.svg" alt="Twitter Icon"></a>
+            </div>
+    
+            <div class="footer-nav-wrapper">
+                <h2 id="footer-navLinks">Navigation Links</h2>
+                <ul class="footer-navlink-links">
+                    <div class="footer-nav">
+                        <li><a href="#index.html">Home</a></li>
+                        <li><a href="#product/product.html">Product</a></li>     
+                    </div>
+
+                    <div class="footer-nav">
+                        <li><a href="#support/support.html">Support</a></li>
+                        <li><a href="#aboutUs.html">About Us</a></li>
+                    </div>
+                    <div class="footer-nav">
+                        <li><a href="#cart/cart.html">Cart</a></li>
+                    </div>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
+    </footer>
     
 <!-- Link JS Here -->
     <script src="./assets/js/app.js"></script>
