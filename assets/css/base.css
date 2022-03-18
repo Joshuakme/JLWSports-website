@@ -325,7 +325,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 
 /* Mobile Size Menu Slide from right to left */
 .menu-triggered {
-  transform: translateX(-130%);
+  left: 0;
 }
 
 .overflow-hidden {
