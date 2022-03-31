@@ -218,6 +218,10 @@ footer {
   cursor: pointer;
 }
 
+.newsletter-subscribe-wrapper form button:disabled {
+  pointer-events: none;
+}
+
 .footer-mobile-bottom {
   display: flex;
   flex: 1;
