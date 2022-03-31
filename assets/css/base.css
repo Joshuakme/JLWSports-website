@@ -216,6 +216,7 @@ footer {
   border: 2px solid rgb(235, 235, 235);
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .newsletter-subscribe-wrapper form button:disabled {
