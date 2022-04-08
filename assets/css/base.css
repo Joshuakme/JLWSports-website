@@ -101,7 +101,7 @@ nav form {
 header nav #search-btn {
   font-size: 1.3rem;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin-right: 2.5rem;
 }
 
@@ -147,7 +147,7 @@ header nav #search-btn:hover {
 
 /* Content */
 .content-wrapper {
-  height: 68vh;
+  height: 70vh;
 }
 
 /* Footer Left */
@@ -170,7 +170,7 @@ footer {
   align-items: flex-start;
 }
 
-.footer-left .newsletter-subscribe-wrapper {
+.footer-left #newsletter-subscribe-wrapper {
   margin-top: 15px;
   padding: 10px;
   padding-left: 6vw;
@@ -180,21 +180,21 @@ footer {
   flex-grow: 1;
 }
 
-.newsletter-subscribe-wrapper span,
+#newsletter-subscribe-wrapper span,
 #footer-logo {
   color: var(--theme-red);
 }
 
-.newsletter-subscribe-wrapper label {
+#newsletter-subscribe-wrapper label {
   font-size: 18px;
   font-weight: bold;
 }
 
-.newsletter-subscribe-wrapper form {
+#newsletter-subscribe-wrapper form {
   margin-top: 10px;
 }
 
-.newsletter-subscribe-wrapper form input {
+#newsletter-subscribe-wrapper form input {
   line-height: 21px;
   padding: 4px 5px;
   font-size: 14px;
@@ -202,14 +202,15 @@ footer {
   border: 2px solid rgb(235, 235, 235);
   margin-right: 5px;
   width: 205.83px;
+  outline: none;
 }
 
-.newsletter-subscribe-wrapper form input:placeholder-shown {
+#newsletter-subscribe-wrapper form input:placeholder-shown {
   font-weight: bold;
   font-size: 14px;
 }
 
-.newsletter-subscribe-wrapper form button {
+#newsletter-subscribe-wrapper form button {
   line-height: 20px;
   padding: 5px 5px;
   border-radius: 4px;
@@ -219,9 +220,10 @@ footer {
   transition: 0.2s;
 }
 
-.newsletter-subscribe-wrapper form button:disabled {
+#newsletter-subscribe-wrapper form button:disabled {
   pointer-events: none;
 }
+
 
 .footer-mobile-bottom {
   display: flex;
@@ -335,6 +337,73 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+/* Modal Box */
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #60606089;
+  transition: opacity 0.2s ease;
+  z-index: 3;
+}
+
+.loadingBox {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.loadingText {
+  font-weight: 600;
+  font-size: 2rem;
+  color: black;
+  -webkit-animation: color-change 3s infinite;
+  -moz-animation: color-change 3s infinite;
+  -o-animation: color-change 3s infinite;
+  -ms-animation: color-change 3s infinite;
+  animation: color-change 3s infinite;
+}
+
+@-webkit-keyframes color-change {
+  0% { color: black; }
+  50% { color: var(--theme-red); }
+  100% { color: black; }
+}
+
+@-moz-keyframes color-change {
+  0% { color: black; }
+  50% { color: var(--theme-red); }
+  100% { color: black; }
+}
+
+@-o-keyframes color-change {
+  0% { color: black; }
+  50% { color: var(--theme-red); }
+  100% { color: black; }
+}
+
+@-ms-keyframes color-change {
+  0% { color: black; }
+  50% { color: var(--theme-red); }
+  100% { color: black; }
+}
+
+@keyframes color-change {
+  0% { color: black; }
+  50% { color: var(--theme-red); }
+  100% { color: black; }
 }
 
 /* Tablet Size */
@@ -458,7 +527,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
     align-items: center;
   }
 
-  footer .newsletter-subscribe-wrapper {
+  footer #newsletter-subscribe-wrapper {
     border-right: 1px solid transparent;
     width: 100vw;
     text-align: center;
