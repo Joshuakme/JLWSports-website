@@ -152,9 +152,11 @@ header nav #search-btn:hover {
 
 /* Footer Left */
 footer {
+  position: absolute;
+  bottom: 0;
   background-color: white;
   box-shadow: 0px -4px 16px rgba(34, 34, 34, 0.12);
-  height: 20vh;
+  min-height: 20vh;
   width: 100%;
 }
 
