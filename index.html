@@ -45,9 +45,9 @@
     <footer>
         <div class="footer-top">
             <div class="footer-left">
-                <div class="newsletter-subscribe-wrapper">
-                    <label for="subscribe-email"><span class="highlight">Subscribe</span> for our Newsletter</label>
-                    <form action="#" method="post">
+                <div id="newsletter-subscribe-wrapper">
+                    <label for="subscribe-email"><span class="highlight">Subscribe</span> to our Newsletter</label>
+                    <form method="post" action="" id="email-sub-form">
                         <input type="email" name="email" id="subscribe-email" placeholder="example@email.com">
                         <button id="subscribe-btn" disabled>Register</button>
                     </form>
@@ -88,9 +88,12 @@
         
         <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
     </footer>
+    <!-- <div class="modal" id="email-sub-modal">
+        <span class="loadingBox" id="email-sub-modal-loading"></span>
+    </div> -->
     
     <!-- Link JS Here -->
-    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/base.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>
