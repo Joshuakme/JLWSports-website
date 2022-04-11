@@ -1,0 +1,55 @@
+.contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70vh;
+}
+
+.contact-info h2,.contact-info p {
+  margin: 0.8rem;
+}
+
+.address span{
+  display: flex;
+  align-items: center;
+  height: 1rem;
+  margin:0.8rem;
+}
+
+.address p{
+font-size: 0.9rem;
+}
+
+.column {
+  float: left;
+  width: 32.5%;
+  padding: 5px;
+  text-align:center;
+}
+  
+.row{
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.yellow-container{
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center; 
+  background-color: #FEF667; 
+  height: 2.5rem;
+}
+
+.yellow-container p {
+  font-size: 1.1rem;
+}
