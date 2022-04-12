@@ -11,6 +11,7 @@
     const emailModalDiv = document.createElement('div');
     const modalLoadingSpan = document.createElement('span');
     const loadingText = document.createElement('p');
+    const loadingSpinner = document.createElement('div');
     // Nav Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const hamburgerBar = hamburger.childNodes;
@@ -84,12 +85,16 @@ function handleEmailSub(e) {
     // Create Modal span <span class="loadingBox" id="email-sub-modal-loading"></span>
     modalLoadingSpan.classList.add("loadingBox");
     modalLoadingSpan.id = "email-sub-modal-loading";
-    emailModalDiv.appendChild(modalLoadingSpan);
+    emailSubModal.appendChild(modalLoadingSpan);
 
     // Create Modal paragraph <p class="loadingText">Loading...</p>
     loadingText.classList.add("loadingText");
     loadingText.innerText = "Loading..."
     modalLoadingSpan.appendChild(loadingText);
+
+    // Create Modal Loading Spinner
+    loadingSpinner.classList.add("loadingSpinner");
+    modalLoadingSpan.appendChild(loadingSpinner);
 
     setTimeout(closeLoadingModal, 1500);    
 }
