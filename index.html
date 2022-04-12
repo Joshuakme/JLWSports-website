@@ -40,7 +40,23 @@
         </nav>
     </header>
 
-    <section class="content-wrapper"></section>
+    <section class="content-wrapper">
+        <section id="carousel">
+            <div id="slider">
+                <section class="slider-image image1"></section>
+                <section class="slider-image image2"></section>
+                <section class="slider-image image3"></section>
+                <img src="./assets/img/home_slider/gym.jpg" alt="gym">
+                <img src="./assets/img/home_slider/jog.jpg" alt="jog">
+                <img src="./assets/img/home_slider/swim.jpg" alt="swim">
+            </div>
+            
+            <div class="controls">
+                <span class="arrow prev"><i class="fa-solid fa-angle-left"></i></span>
+                <span class="arrow next"><i class="fa-solid fa-angle-right"></i></span>
+              </div>
+        </section>
+    </section>
 
     <footer>
         <div class="footer-top">
@@ -51,6 +67,9 @@
                         <input type="email" name="email" id="subscribe-email" placeholder="example@email.com">
                         <button id="subscribe-btn" disabled>Register</button>
                     </form>
+                    <!-- <div class="modal" id="email-sub-modal">
+                    <span class="loadingBox" id="email-sub-modal-loading"></span>
+                    </div> -->
                 </div>
             </div>
 
@@ -81,6 +100,13 @@
                         </div>
                     </ul>
                 </div>
+
+                <div class="footer-payment-options">
+                    <div id="paypal">
+
+                    </div>
+
+                </div>
             </div>
 
             
@@ -88,12 +114,11 @@
         
         <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
     </footer>
-    <!-- <div class="modal" id="email-sub-modal">
-        <span class="loadingBox" id="email-sub-modal-loading"></span>
-    </div> -->
+    
     
     <!-- Link JS Here -->
     <script src="./assets/js/base.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/index.js"></script>
+    
 </body>
 </html>
