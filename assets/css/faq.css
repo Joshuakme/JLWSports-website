@@ -1,0 +1,45 @@
+.container {
+  font-family: "Open Sans", sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container .ques-container {
+  box-shadow: 0 4px 8px -3px rgba(0,0,0,3);
+}
+
+.container h2 {
+  padding: 4px 32px;
+  font-size: 28px;
+}
+
+.container .header {
+  display: flex;
+  background: cyan;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.container .header:hover {
+  background: rgb(0, 179, 255)
+}
+
+
+.container .header h3 {
+  font-size: 20px;
+  padding: 0 32px;
+}
+
+.container .description {
+  padding: 0 32px;
+  background: #fdfffc;
+  line-height: 2;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.container .description.active {
+  max-height: 1000px;
+}
