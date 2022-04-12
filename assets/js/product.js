@@ -1,19 +1,327 @@
-var productImg = document.getElementById("productImg")
-var productViewImg = document.getElementsByClassName("product-view-img")
+// Define Products Attribute
+const ukSize = ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"];
+const clothingSize = ["XS", "S", "M", "L", "XL", "XXL"];
 
-productViewImg[0].onclick = function()
-{
-    productImg.src = productViewImg [0].src;
+// Define Products
+const productList = [
+    {
+        id: 1,
+        name: "Nike City Rep TR",
+        type: "footwear",
+        brand: "Nike",
+        price: 225.00,
+        size: ukSize,
+        quantity: 30,
+        images: ["../assets/img/product/nike/nike1a.jpg", 
+                "../assetsimg/product/nike/nike1a-gallery.jpg",
+                "../assets/img/product/nike/nike1b.jpg", 
+                "../assets/img/product/nike/nike1b-gallery.jpg",
+                "../assets/img/product/nike/nike1c.jpg", 
+                "../assets/img/product/nike/nike1c-gallery.jpg",
+                "../assets/img/product/nike/nike1d.jpg", 
+                "../assets/img/product/nike/nike1d-gallery.jpg",
+                ]
+    },
+    {
+        id: 2,
+        name: "New Balance 5740 Women's",
+        type: "footwear",
+        brand: "New Balance",
+        price: 519.00,
+        size: ukSize,
+        quantity: 50,
+        images: ["../assets/img/product/newbalance/nb1a.jpg", 
+                "../assetsimg/product/newbalance/nb1a-gallery.jpg",
+                "../assets/img/product/newbalance/nb1b.jpg", 
+                "../assets/img/product/newbalance/nb1b-gallery.jpg",
+                "../assets/img/product/newbalance/nb1c.jpg", 
+                "../assets/img/product/newbalance/nb1c-gallery.jpg",
+                "../assets/img/product/newbalance/nb1d.jpg", 
+                "../assets/img/product/newbalance/nb1d-gallery.jpg",
+                ]
+    },
+    {
+        id: 3,
+        name: "Black Nike T-shirt",
+        type: "clothing",
+        brand: "Nike",
+        price: 50.00,
+        size: clothingSize,
+        quantity: 33,
+        images: ["../assets/img/product/nike/nike2a.jpg", 
+                "../assets/img/product/nike/nike2a-gallery.jpg",
+                "../assets/img/product/nike/nike2b.jpg", 
+                "../assets/img/product/nike/nike2b-gallery.jpg",
+                "../assets/img/product/nike/nike2c.jpg", 
+                "../assets/img/product/nike/nike2c-gallery.jpg",
+                "../assets/img/product/nike/nike2d.jpg", 
+                "../assets/img/product/nike/nike2d-gallery.jpg",
+                ]
+    },
+    {
+        id: 4,
+        name: "High Shine High Waisted 7/8 Women's Running Leggings",
+        type: "clothing",
+        brand: "Puma",
+        price: 149.00,
+        size: clothingSize,
+        quantity: 50,
+        images: ["../assets/img/product/puma/puma1a.jpg", 
+                "../assets/img/product/puma/puma1a-gallery.jpg",
+                "../assets/img/product/puma/puma1b.jpg", 
+                "../assets/img/product/puma/puma1b-gallery.jpg",
+                "../assets/img/product/puma/puma1c.jpg", 
+                "../assets/img/product/puma/puma1c-gallery.jpg",
+                "../assets/img/product/puma/puma1d.jpg", 
+                "../assets/img/product/puma/puma1d-gallery.jpg",
+                ]
+    },
+    {
+        id: 5,
+        name: "Woman's Tank",
+        type: "clothing",
+        brand: "Nike",
+        price: 129.00,
+        size: clothingSize,
+        quantity: 50,
+        images: ["../assets/img/product/nike/nike3a.jpg", 
+                "../assets/img/product/nike/nike3a-gallery.jpg",
+                "../assets/img/product/nike/nike3b.jpg", 
+                "../assets/img/product/nike/nike3b-gallery.jpg",
+                "../assets/img/product/nike/nike3c.jpg", 
+                "../assets/img/product/nike/nike3c-gallery.jpg",
+                "../assets/img/product/nike/nike3d.jpg", 
+                "../assets/img/product/nike/nike3d-gallery.jpg",
+                ]
+    },
+    {
+        id: 6,
+        name: "Nike Air Men's Trousers",
+        type: "clothing",
+        brand: "Nike",
+        price: 299.00,
+        size: clothingSize,
+        quantity: 50,
+        images: ["../assets/img/product/nike/nike4a.jpg", 
+                "../assets/img/product/nike/nike4a-gallery.jpg",
+                "../assets/img/product/nike/nike4b.jpg", 
+                "../assets/img/product/nike/nike4b-gallery.jpg",
+                "../assets/img/product/nike/nike4c.jpg", 
+                "../assets/img/product/nike/nike4c-gallery.jpg",
+                "../assets/img/product/nike/nike4d.jpg", 
+                "../assets/img/product/nike/nike4d-gallery.jpg",
+                ]
+    },
+    {
+        id: 7,
+        name: "Aeon Rewind Women's Trainers",
+        type: "footwear",
+        brand: "Puma",
+        price: 209.00,
+        size: ukSize,
+        quantity: 50,
+        images: ["../assets/img/product/puma/puma2a.jpg", 
+                "../assets/img/product/puma/puma2a-gallery.jpg",
+                "../assets/img/product/puma/puma2b.jpg", 
+                "../assets/img/product/puma/puma2b-gallery.jpg",
+                "../assets/img/product/puma/puma2c.jpg", 
+                "../assets/img/product/puma/puma2c-gallery.jpg",
+                "../assets/img/product/puma/puma2d.jpg", 
+                "../assets/img/product/puma/puma2d-gallery.jpg",
+                ]
+    },
+    {
+        id: 8,
+        name: "Evostripe Women's Tee",
+        type: "clothing",
+        brand: "Puma",
+        price: 59.00,
+        size: ukSize,
+        quantity: 50,
+        images: ["../assets/img/product/puma/puma3a.jpg", 
+                "../assets/img/product/puma/puma3a-gallery.jpg",
+                "../assets/img/product/puma/puma3b.jpg", 
+                "../assets/img/product/puma/puma3b-gallery.jpg",
+                "../assets/img/product/puma/puma3c.jpg", 
+                "../assets/img/product/puma/puma3c-gallery.jpg",
+                "../assets/img/product/puma/puma3d.jpg", 
+                "../assets/img/product/puma/puma3d-gallery.jpg",
+                ]
+    },
+    {
+        id: 9,
+        name: "Nike ZoomX Invincible Run Flyknit 2",
+        type: "footwear",
+        brand: "Nike",
+        price: 779.00,
+        size: ukSize,
+        quantity: 50,
+        images: ["../assets/img/product/nike/nike6a.jpg", 
+                "../assets/img/product/nike/nike6a-gallery.jpg",
+                "../assets/img/product/nike/nike6b.jpg", 
+                "../assets/img/product/nike/nike6b-gallery.jpg",
+                "../assets/img/product/nike/nike6c.jpg", 
+                "../assets/img/product/nike/nike6c-gallery.jpg",
+                "../assets/img/product/nike/nike6d.jpg", 
+                "../assets/img/product/nike/nike6d-gallery.jpg",
+                ]
+    },
+    {
+        id: 10,
+        name: "Nike Air Men's Trousers",
+        type: "clothing",
+        brand: "Nike",
+        price: 299.00,
+        size: clothingSize,
+        quantity: 50,
+        images: ["../assets/img/product/nike/nike5a.jpg", 
+                "../assets/img/product/nike/nike5a-gallery.jpg",
+                "../assets/img/product/nike/nike5b.jpg", 
+                "../assets/img/product/nike/nike5b-gallery.jpg",
+                "../assets/img/product/nike/nike5c.jpg", 
+                "../assets/img/product/nike/nike5c-gallery.jpg",
+                "../assets/img/product/nike/nike5d.jpg", 
+                "../assets/img/product/nike/nike5d-gallery.jpg",
+                ]
+    },
+    {
+        id: 11,
+        name: `Ignite 3" Women's Shorts`,
+        type: "clothing",
+        brand: "Nike",
+        price: 69.00,
+        size: clothingSize,
+        quantity: 50,
+        images: ["../assets/img/product/puma/puma5a.jpg", 
+                "../assets/img/product/puma/puma5a-gallery.jpg",
+                "../assets/img/product/puma/puma5b.jpg", 
+                "../assets/img/product/puma/puma5b-gallery.jpg",
+                "../assets/img/product/puma/puma5c.jpg", 
+                "../assets/img/product/puma/puma5c-gallery.jpg",
+                "../assets/img/product/puma/puma5d.jpg", 
+                "../assets/img/product/puma/puma5d-gallery.jpg",
+                ]
+    },
+    {
+        id: 12,
+        name: "Evostripe Women's Tee",
+        type: "clothing",
+        brand: "Puma",
+        price: 59.00,
+        size: clothingSize,
+        quantity: 50,
+        images: ["../assets/img/product/puma/puma4a.jpg", 
+                "../assets/img/product/puma/puma4a-gallery.jpg",
+                "../assets/img/product/puma/puma4b.jpg", 
+                "../assets/img/product/puma/puma4b-gallery.jpg",
+                "../assets/img/product/puma/puma4c.jpg", 
+                "../assets/img/product/puma/puma4c-gallery.jpg",
+                "../assets/img/product/puma/puma4d.jpg", 
+                "../assets/img/product/puma/puma4d-gallery.jpg",
+                ]
+    },
+]
+
+console.log(productList.length)
+// Create Elements
+const productsContainer = document.getElementById("products-box-container");
+const productRow = document.createElement("div");
+const productCol = document.createElement("div");
+const productLink = document.createElement("a");
+const productImg = document.createElement("img");
+const productName = document.createElement("h4");
+const productPara = document.createElement("p");
+
+
+let count = 0;
+let rowLength;
+if(productList.length % 4 === 0) {
+    rowLength = productList.length / 4;
+} else if(productList.length % 4 != 0) {
+    rowLength = Math.ceil(productList.length / 4);
+    console.log(rowLength)
 }
-productViewImg[1].onclick = function()
-{
-    productImg.src = productViewImg [1].src;
+
+for(let r=0; r<rowLength; r++) {
+    if(r === 0) {
+        // productRow  -->   <div class="row"></div>
+        productRow.classList.add("row");
+        productsContainer.appendChild(productRow);
+    }
+
+    for(let c=0; c<4; c++) {
+        if(count === productList.length) {
+            break;
+        } else if(count === 0) {
+            // productCol  -->   <div class="col-4"></div>
+            productCol.classList.add("col-4");
+            productRow.appendChild(productCol);
+            // productLink  --> <a href="#">
+            productLink.href = `../product/detail.html`;
+            productCol.appendChild(productLink);
+            // <img src="#">
+            productImg.src = `${productList[count].images[0]}`;
+            // productImg.addEventListener("click", ())
+            productLink.appendChild(productImg);
+            // <h4>Product Name</h4>
+            productName.innerText = `${productList[count].name}`;
+            productCol.appendChild(productName);
+            // <p>RM {Price}</p>
+            productPara.innerText = `RM${productList[count].price}`;
+            productCol.appendChild(productPara);
+
+            count++;
+        } else {
+            // productCol  -->   <div class="col-4"></div>
+            productRow.appendChild(productCol.cloneNode(true));
+            // productLink  --> <a href="#">
+            productLink.href = `../product/detail.html`;
+            productCol.appendChild(productLink);
+            // <img src="#">
+            productImg.src = `${productList[count].images[0]}`;
+            // productImg.addEventListener("click", ())
+            productLink.appendChild(productImg);
+            // <h4>Product Name</h4>
+            productName.innerText = `${productList[count].name}`;
+            productCol.appendChild(productName);
+            // <p>RM {Price}</p>
+            productPara.innerText = `RM${productList[count].price}`;
+            productCol.appendChild(productPara);
+
+            count++;
+        }
+    }
 }
-productViewImg[2].onclick = function()
-{
-    productImg.src = productViewImg [2].src;
-}
-productViewImg[3].onclick = function()
-{
-    productImg.src = productViewImg [3].src;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var productImg = document.getElementById("productImg")
+// var productViewImg = document.getElementsByClassName("product-view-img")
+
+// productViewImg[0].onclick = function()
+// {
+//     productImg.src = productViewImg [0].src;
+// }
+// productViewImg[1].onclick = function()
+// {
+//     productImg.src = productViewImg [1].src;
+// }
+// productViewImg[2].onclick = function()
+// {
+//     productImg.src = productViewImg [2].src;
+// }
+// productViewImg[3].onclick = function()
+// {
+//     productImg.src = productViewImg [3].src;
+// }
