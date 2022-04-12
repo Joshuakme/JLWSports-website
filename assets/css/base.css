@@ -30,6 +30,9 @@ body {
   font-family: Gotham SSm A, Gotham SSm B, Arial, sans-serif;
   font-size: 0.875rem;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -99,6 +102,8 @@ nav form {
 
 /* Header Search Button */
 header nav #search-btn {
+  height: 24px;
+  width: 24px;
   font-size: 1.3rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -147,12 +152,12 @@ header nav #search-btn:hover {
 
 /* Content */
 .content-wrapper {
-  height: 70vh;
+  flex: 1;
 }
 
 /* Footer Left */
 footer {
-  position: absolute;
+  /* position: fixed; */
   bottom: 0;
   background-color: white;
   box-shadow: 0px -4px 16px rgba(34, 34, 34, 0.12);
@@ -343,7 +348,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 
 /* Modal Box */
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -352,7 +357,11 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
   height: 100vh;
   background-color: #60606089;
   transition: opacity 0.2s ease;
-  z-index: 3;
+  background: rgba( 255, 255, 255, .8 )
+    url('https://i.stack.imgur.com/FhHRx.gif')
+    50% 50%
+    no-repeat;
+  z-index: 1000;
 }
 
 .loadingBox {
@@ -362,6 +371,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
   width: 50%;
   height: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: white;
@@ -369,7 +379,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 
 .loadingText {
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: black;
   -webkit-animation: color-change 3s infinite;
   -moz-animation: color-change 3s infinite;
@@ -408,6 +418,39 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
   100% { color: black; }
 }
 
+.loadingSpinner {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid var(--theme-red);
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  -o-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@-o-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Tablet Size */
 @media (max-width: 1000px) {
   /* Navigation Bar */
@@ -435,7 +478,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
   nav ul {
     position: fixed;
     right: -120%;
-    top: 10.5vh;
+    top: 10vh;
     flex-direction: column;
     background-color: white;
     width: 100vw;

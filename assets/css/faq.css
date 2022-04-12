@@ -4,11 +4,17 @@
   margin: 0 auto;
 }
 
+
 .container h2 {
   padding: 4px 32px;
   font-size: 28px;
   text-align: center;
 }
+
+.container .ques-container {
+  box-shadow: 0 4px 8px -3px rgba(0,0,0,3);
+}
+
 
 .container .header {
   display: flex;
@@ -23,6 +29,8 @@
   color: white;
 }
 
+
+
 .container .header h3 {
   font-size: 20px;
   padding: 0 32px;
@@ -36,6 +44,7 @@
   overflow: hidden;
   transition: 0.3s;
   margin-bottom: 5px;
+
 }
 
 .container .description.active {
@@ -56,3 +65,4 @@
   width: 200px;
   padding: 5px;
 }
+
