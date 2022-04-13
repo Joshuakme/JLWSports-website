@@ -267,7 +267,7 @@ footer i:hover {
   box-shadow: 0px 2px 8px rgba(34, 34, 34, 0.12);
   border-radius: 50%;
   color: var(--theme-red);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 /* Footer Navigation Links */
