@@ -17,7 +17,7 @@
 }
 
 .row {
-    display:flex;
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -33,7 +33,7 @@
     padding: 10px;
     min-width: 200px;
     margin-bottom: 50px;
-    transition: transform 0.5s;
+    transition: 0.5s;
 }
 
 .col-4 img {

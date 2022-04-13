@@ -222,15 +222,8 @@ const productList = [
     },
 ]
 
-console.log(productList.length)
-// Create Elements
-const productsContainer = document.getElementById("products-box-container");
-const productRow = document.createElement("div");
-const productCol = document.createElement("div");
-const productLink = document.createElement("a");
-const productImg = document.createElement("img");
-const productName = document.createElement("h4");
-const productPara = document.createElement("p");
+console.log(productList)
+
 
 
 let count = 0;
@@ -243,54 +236,61 @@ if(productList.length % 4 === 0) {
 }
 
 for(let r=0; r<rowLength; r++) {
-    if(r === 0) {
-        // productRow  -->   <div class="row"></div>
-        productRow.classList.add("row");
-        productsContainer.appendChild(productRow);
+    productContainer(r);    11  
+
+       ff
+}
+
+for(let c=0; c<4; c++) {
+    if(count === productList.length || c === 4) {
+        break;
+    } else {
+        count = productCard(productRow, count);
+    }
+}
+
+
+function productContainer(r) {
+    const productsContainer = document.getElementById("products-box-container");
+    // Create Elements Needed to buid container
+    if(r != 0) {
+        const productRow = document.createElement("div").cloneNode();
+    } else {
+        const productRow = document.createElement("div");
     }
 
-    for(let c=0; c<4; c++) {
-        if(count === productList.length) {
-            break;
-        } else if(count === 0) {
-            // productCol  -->   <div class="col-4"></div>
-            productCol.classList.add("col-4");
-            productRow.appendChild(productCol);
-            // productLink  --> <a href="#">
-            productLink.href = `../product/detail.html`;
-            productCol.appendChild(productLink);
-            // <img src="#">
-            productImg.src = `${productList[count].images[0]}`;
-            // productImg.addEventListener("click", ())
-            productLink.appendChild(productImg);
-            // <h4>Product Name</h4>
-            productName.innerText = `${productList[count].name}`;
-            productCol.appendChild(productName);
-            // <p>RM {Price}</p>
-            productPara.innerText = `RM${productList[count].price}`;
-            productCol.appendChild(productPara);
+    // Append newly created elements into the DOM
+    productsContainer.append(productRow);
 
-            count++;
-        } else {
-            // productCol  -->   <div class="col-4"></div>
-            productRow.appendChild(productCol.cloneNode(true));
-            // productLink  --> <a href="#">
-            productLink.href = `../product/detail.html`;
-            productCol.appendChild(productLink);
-            // <img src="#">
-            productImg.src = `${productList[count].images[0]}`;
-            // productImg.addEventListener("click", ())
-            productLink.appendChild(productImg);
-            // <h4>Product Name</h4>
-            productName.innerText = `${productList[count].name}`;
-            productCol.appendChild(productName);
-            // <p>RM {Price}</p>
-            productPara.innerText = `RM${productList[count].price}`;
-            productCol.appendChild(productPara);
+    // Set content and attributes
+    productRow.classList.add("row");        // productRow  -->   <div class="row"></div>
+}
 
-            count++;
-        }
-    }
+function productCard(productRow, count) {
+    // Create Elements Needed to buid card
+    const productCol = document.createElement("div");   // const productRow = document.createElement("div");
+    const productLink = document.createElement("a");
+    const productImg = document.createElement("img");
+    const productName = document.createElement("h4");
+    const productPara = document.createElement("p");
+
+    // Append newly created elements into the DOM
+    productRow.append(productCol);     // productCol  -->   <div class="col-4"></div>
+    productCol.append(productLink);     // productLink  --> <a>
+    productLink.append(productImg);     // <img>
+    productCol.append(productName);     // <h4>Product Name</h4>
+    productCol.append(productPara);     // <p>RM {Price}</p>
+
+    // Set content and attributes
+    productCol.classList.add("col-4");
+    productLink.setAttribute("href", `../product/detail.html`);
+    productImg.setAttribute("src", `${productList[count].images[0]}`);
+    productName.innerText = `${productList[count].name}`;
+    productPara.innerText = `RM${productList[count].price}`;
+    
+    // productImg.addEventListener("click", ())
+    count++;
+    return count;
 }
 
 
