@@ -1,8 +1,8 @@
-* {
-    font-family: Gotham SSm A, Gotham SSm B, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --theme-yellow: #e2cc4e;
+    --theme-red: #c30032;
+    --border-grey: rgb(235, 235, 235);
+    --div-grey: rgba(207, 202, 202, 0.719);
 }
 
 .small-container {
@@ -17,7 +17,7 @@
 }
 
 .row {
-    display:flex;
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -33,14 +33,14 @@
     padding: 10px;
     min-width: 200px;
     margin-bottom: 50px;
-    transition: transform 0.5s;
+    transition: 0.5s;
 }
 
 .col-4 img {
     width: 230px;
 }
 
-.title{
+.products-title {
     text-align: center;
     margin: 0 auto 80px;
     position: relative;
@@ -48,7 +48,7 @@
     color: #555;
 }
 
-.title::after {
+.products-title::after {
     content: '';
     background: #e2cc4e;
     width: 100px;
@@ -65,7 +65,7 @@ h4 {
     font-weight: normal;
 }
 
-.col-4 p{
+.col-4 p {
     font-weight: bold;
     font-size: 13px;
 }
@@ -75,19 +75,22 @@ h4 {
     transform: translateY(-5px);
 }
 
-.select {
+.filter-select {
     text-align: right;
     margin: 100px auto 50px;    
 }
 
 select {
-    border: 1px solid #c30032;
+    border: 1px solid var(--div-grey);
     padding: 5px;
+    outline: none;
+    cursor: pointer;
 }
 
-select:focus {
-    outline: none;
+select:hover {
+
 }
+
 
 .page-but {
     margin: 0 auto 80px;
