@@ -235,17 +235,16 @@ if(productList.length % 4 === 0) {
     console.log(rowLength)
 }
 
+let productRow;
 for(let r=0; r<rowLength; r++) {
-    productContainer(r);    11  
+    productRow = productContainer(r);     
 
-       ff
-}
-
-for(let c=0; c<4; c++) {
-    if(count === productList.length || c === 4) {
-        break;
-    } else {
-        count = productCard(productRow, count);
+    for(let c=0; c<4; c++) {
+        if(count === productList.length || c === 4) {
+            break;
+        } else {
+            count = productCard(productRow, count);
+        }
     }
 }
 
@@ -253,20 +252,19 @@ for(let c=0; c<4; c++) {
 function productContainer(r) {
     const productsContainer = document.getElementById("products-box-container");
     // Create Elements Needed to buid container
-    if(r != 0) {
-        const productRow = document.createElement("div").cloneNode();
-    } else {
-        const productRow = document.createElement("div");
-    }
+    const productRow = document.createElement("div");
 
     // Append newly created elements into the DOM
-    productsContainer.append(productRow);
+    productsContainer.appendChild(productRow);
 
     // Set content and attributes
     productRow.classList.add("row");        // productRow  -->   <div class="row"></div>
+
+    return productRow;
 }
 
 function productCard(productRow, count) {
+    console.log("Hi")
     // Create Elements Needed to buid card
     const productCol = document.createElement("div");   // const productRow = document.createElement("div");
     const productLink = document.createElement("a");
@@ -275,11 +273,11 @@ function productCard(productRow, count) {
     const productPara = document.createElement("p");
 
     // Append newly created elements into the DOM
-    productRow.append(productCol);     // productCol  -->   <div class="col-4"></div>
-    productCol.append(productLink);     // productLink  --> <a>
-    productLink.append(productImg);     // <img>
-    productCol.append(productName);     // <h4>Product Name</h4>
-    productCol.append(productPara);     // <p>RM {Price}</p>
+    productRow.appendChild(productCol);     // productCol  -->   <div class="col-4"></div>
+    productCol.appendChild(productLink);     // productLink  --> <a>
+    productLink.appendChild(productImg);     // <img>
+    productCol.appendChild(productName);     // <h4>Product Name</h4>
+    productCol.appendChild(productPara);     // <p>RM {Price}</p>
 
     // Set content and attributes
     productCol.classList.add("col-4");
