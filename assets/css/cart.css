@@ -1,0 +1,11 @@
+.yellow-cart p,.yellow-cart a{
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center; 
+  background-color: #FEF667; 
+  height: 1.5rem;
+}
+
