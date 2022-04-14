@@ -1,3 +1,10 @@
+:root {
+    --theme-yellow: #e2cc4e;
+    --theme-red: #c30032;
+    --border-grey: rgb(235, 235, 235);
+    --div-grey: rgba(207, 202, 202, 0.719);
+  }
+
 .checkout{
     width:80vw;
     margin-left: auto;
@@ -126,3 +133,17 @@ select#country{
     justify-content: center;
     font-size: 15px;
 }
+
+.apply, .payment {
+    background-color: var(--border-grey);
+    border: none;
+    color: var(--theme-red);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
