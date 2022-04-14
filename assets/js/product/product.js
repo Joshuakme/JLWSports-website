@@ -21,7 +21,8 @@ const productList = [
                 "../assets/img/product/nike/nike1c-gallery.jpg",
                 "../assets/img/product/nike/nike1d.jpg", 
                 "../assets/img/product/nike/nike1d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/nike1-detail.html"
     },
     {
         id: 2,
@@ -40,7 +41,8 @@ const productList = [
                 "../assets/img/product/newbalance/nb1c-gallery.jpg",
                 "../assets/img/product/newbalance/nb1d.jpg", 
                 "../assets/img/product/newbalance/nb1d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/nb1-detail.html"
     },
     {
         id: 3,
@@ -59,7 +61,8 @@ const productList = [
                 "../assets/img/product/nike/nike2c-gallery.jpg",
                 "../assets/img/product/nike/nike2d.jpg", 
                 "../assets/img/product/nike/nike2d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/nike2-detail.html"
     },
     {
         id: 4,
@@ -78,7 +81,8 @@ const productList = [
                 "../assets/img/product/puma/puma1c-gallery.jpg",
                 "../assets/img/product/puma/puma1d.jpg", 
                 "../assets/img/product/puma/puma1d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/puma1-detail.html"
     },
     {
         id: 5,
@@ -97,7 +101,8 @@ const productList = [
                 "../assets/img/product/nike/nike3c-gallery.jpg",
                 "../assets/img/product/nike/nike3d.jpg", 
                 "../assets/img/product/nike/nike3d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/nike3-detail.html"
     },
     {
         id: 6,
@@ -116,7 +121,8 @@ const productList = [
                 "../assets/img/product/nike/nike4c-gallery.jpg",
                 "../assets/img/product/nike/nike4d.jpg", 
                 "../assets/img/product/nike/nike4d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/nike4-detail.html"
     },
     {
         id: 7,
@@ -135,7 +141,8 @@ const productList = [
                 "../assets/img/product/puma/puma2c-gallery.jpg",
                 "../assets/img/product/puma/puma2d.jpg", 
                 "../assets/img/product/puma/puma2d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/puma2-detail.html"
     },
     {
         id: 8,
@@ -154,7 +161,8 @@ const productList = [
                 "../assets/img/product/puma/puma3c-gallery.jpg",
                 "../assets/img/product/puma/puma3d.jpg", 
                 "../assets/img/product/puma/puma3d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/puma3-detail.html"
     },
     {
         id: 9,
@@ -173,7 +181,8 @@ const productList = [
                 "../assets/img/product/nike/nike6c-gallery.jpg",
                 "../assets/img/product/nike/nike6d.jpg", 
                 "../assets/img/product/nike/nike6d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/nike6-detail.html"
     },
     {
         id: 10,
@@ -192,7 +201,8 @@ const productList = [
                 "../assets/img/product/nike/nike5c-gallery.jpg",
                 "../assets/img/product/nike/nike5d.jpg", 
                 "../assets/img/product/nike/nike5d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/nike5-detail.html"
     },
     {
         id: 11,
@@ -211,7 +221,8 @@ const productList = [
                 "../assets/img/product/puma/puma5c-gallery.jpg",
                 "../assets/img/product/puma/puma5d.jpg", 
                 "../assets/img/product/puma/puma5d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/puma5-detail.html"
     },
     {
         id: 12,
@@ -230,20 +241,29 @@ const productList = [
                 "../assets/img/product/puma/puma4c-gallery.jpg",
                 "../assets/img/product/puma/puma4d.jpg", 
                 "../assets/img/product/puma/puma4d-gallery.jpg",
-                ]
+                ],
+        detailPageURL: "./detail/puma4-detail.html"
     },
 ]
-let filteredProductList;
 
 
+// PRODUCT PAGE
+    // Define Selected Product Variables & Constants
+    const productRow = document.getElementsByClassName("row");
+    const product = document.getElementsByClassName("col-4");
+    let selectedProduct;
+    let selectedProductName;
 
-// Define Filter Constant
+
+    // Define Filter Constant
 const filterBtn = document.getElementById("filter-btn");
 
-// Add Event Listeners
+    // Add Event Listeners
 filterBtn.addEventListener("change", filterProducts);
 
 
+
+    // Functions
 function filterProducts(e) {
     console.log(e.target.value)
     console.log(productList)
@@ -264,31 +284,16 @@ function filterProducts(e) {
 }
     
 function RenderProducts() {
-    let count = 0;
+    let productRow;
 
-    let rowLength;
-    if(productList.length % 4 === 0) {
-        rowLength = productList.length / 4;
-    } else if(productList.length % 4 != 0) {
-        rowLength = Math.ceil(productList.length / 4);
-        console.log(rowLength)
-    }
+    productRow = productContainer();
 
-    for(let r=0; r<rowLength; r++) {
-        let productRow;
-        productRow = productContainer(r);     
-    
-        for(let c=0; c<4; c++) {
-            if(count === productList.length || c === 4) {
-                break;
-            } else {
-                count = productCard(productRow, count);
-            }
-        }
+    for(let c=0; c<productList.length; c++) {
+        productCard(productRow, c);
     }
 }
 
-function productContainer(r) {
+function productContainer() {
     const productsContainer = document.getElementById("products-box-container");
     // Create Elements Needed to buid container
     const productRow = document.createElement("div");
@@ -320,14 +325,12 @@ function productCard(productRow, count) {
 
     // Set content and attributes
     productCol.classList.add("col-4");
-    productLink.setAttribute("href", `../product/detail.html`);
+    productLink.setAttribute("href", `${productList[count].detailPageURL}?id=${productList[count].id}`);
     productImg.setAttribute("src", `${productList[count].images[0]}`);
     productName.innerText = `${productList[count].displayName}`;
     productPara.innerText = `RM${productList[count].price}`;
     
     // productImg.addEventListener("click", ())
-    count++;
-    return count;
 }
 
 function RenderFilteredProducts(productList) {
@@ -346,38 +349,34 @@ function RenderFilteredProducts(productList) {
 }
 
 
-
-
-
-
-
 RenderProducts();
 
 
 
 
 
+// Product Detail Page
+
+document.title = selectedProductName + " | JLWSports Malaysia";
 
 
 
+const productImg = document.getElementById("productImg")
+const productViewImg = document.getElementsByClassName("product-view-img")
 
-
-// var productImg = document.getElementById("productImg")
-// var productViewImg = document.getElementsByClassName("product-view-img")
-
-// productViewImg[0].onclick = function()
-// {
-//     productImg.src = productViewImg [0].src;
-// }
-// productViewImg[1].onclick = function()
-// {
-//     productImg.src = productViewImg [1].src;
-// }
-// productViewImg[2].onclick = function()
-// {
-//     productImg.src = productViewImg [2].src;
-// }
-// productViewImg[3].onclick = function()
-// {
-//     productImg.src = productViewImg [3].src;
-// }
+productViewImg[0].onclick = function()
+{
+    productImg.src = productViewImg [0].src;
+}
+productViewImg[1].onclick = function()
+{
+    productImg.src = productViewImg [1].src;
+}
+productViewImg[2].onclick = function()
+{
+    productImg.src = productViewImg [2].src;
+}
+productViewImg[3].onclick = function()
+{
+    productImg.src = productViewImg [3].src;
+}

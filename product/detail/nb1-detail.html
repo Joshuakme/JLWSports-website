@@ -6,30 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="JLBSprots Malaysia Official Online Store">
     <meta name="keywords" content="JLWS, Sports, Online Store, Nike, Adidas, Puma, Outfit, Sportwear, Covid, pandemic">
-    <title>Products | JLWSports Malaysia</title>
-    <link rel="icon" type="image/x-icon" href="../assets/img/nav_logo.png">
+    <title>Products Page</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/img/nav_logo.png">
     <!-- Import Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Links -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/product.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/product.css">
 </head>
+
 <body>
     <header>      
         <nav>   
-            <img src="../assets/img/nav_logo.png" alt="JLWS Logo">  
+            <img src="../../assets/img/nav_logo.png" alt="JLWS Logo">  
             <div class="nav-space"></div>    
             <ul class="navLink-wrapper">
                 <li><a href="/" class="nav-link">Home</a></li>
                 <div class="div-line"></div>
-                <li><a href="./product.html" class="nav-link">Product</a></li>
+                <li><a href="./product/product.html" class="nav-link">Product</a></li>
                 <div class="div-line"></div>
                 <li><a href="./support/support.html" class="nav-link">Support</a></li>
                 <div class="div-line"></div>
-                <li><a href="../support/aboutUs.html" class="nav-link">About Us</a></li>
+                <li><a href="aboutUs.html" class="nav-link">About Us</a></li>
                 <div class="div-line"></div>
-                <li><a href="../cart/cart.html" class="nav-link">Cart</a></li>
+                <li><a href="/cart/cart.html" class="nav-link">Cart</a></li>
                 <div class="div-line"></div>
             </ul>
             <!-- <input type="text" name="" id=""> -->
@@ -43,28 +44,87 @@
         </nav>
     </header>
 
-    <section class="content-wrapper">
-        <div class="small-container">
-            <h2 class="products-title">All Products</h2>
-            <div class="filter-select">
-                <select id="filter-btn">
-                    <option value="default">Default</option>
-                    <option value="lth">Low to High</option>
-                    <option value="htl">High to Low</option>
-                </select>
+    <div class="small-container product-detail">
+        <div class="row">
+            <div class="col-2">
+                <img src="../../assets/img/product/newbalance/nb1a-gallery.jpg" width="100%" id="productImg">
+
+                <div class="product-view-row">
+                    <div class="product-view-col">
+                        <img src="../../assets/img/product/newbalance/nb1a-gallery.jpg" width="100%" class="product-view-img">
+                    </div>
+                    <div class="product-view-col">
+                        <img src="../../assets/img/product/newbalance/nb1b-gallery.jpg" width="100%" class="product-view-img">
+                    </div>
+                    <div class="product-view-col">
+                        <img src="../../assets/img/product/newbalance/nb1c-gallery.jpg" width="100%" class="product-view-img">
+                    </div>
+                    <div class="product-view-col">
+                        <img src="../../assets/img/product/newbalance/nb1d-gallery.jpg" width="100%" class="product-view-img">
+                    </div>
+                </div>
+
             </div>
 
-            <div id="products-box-container">
-            </div>
-            
-    
-            <div class="page-but">
-                <span>1</span>
-                <span class="disabled">&#8594;</span>
+            <div class="col-2">
+                <h1>New Balance 5740 Women's</h1>
+                <h4>RM519.00</h4>
+                <select>
+                    <option selected hidden>Select Size</option>
+                    <option>UK 6</option>
+                    <option>UK 6.5</option>
+                    <option>UK 7</option>
+                    <option>UK 7.5</option>
+                    <option>UK 8</option>
+                    <option>UK 8.5</option>
+                    <option>UK 9</option>
+                    <option>UK 9.5</option>
+                    <option>UK 10</option>
+                    <option>UK 10.5</option>
+                    <option>UK 11</option>
+                    <option>UK 11.5</option>
+                    <option>UK 12</option>
+                    <input type="number" value="1" min="0" max="3">
+                    <button class="but">Add To Cart</button>
+                </select>
             </div>
         </div>
-    </section>
-    
+    </div>
+
+    <div>
+        <div class="small-container">
+            <div class="row row-2">
+                <h2>You may also like</h2>
+                <p>View More</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="small-container">
+        <div class="row">
+            <div class="col-4">
+                <img src="img/product-4.jpg">
+                <h4>Blue Puma Collar T-shirt</h4>
+                <p>RM45.00</p>
+            </div>
+            <div class="col-4">
+                <img src="img/product1.jpg">
+                <h4>Black Adidas T-shirt</h4>
+                <p>RM50.00</p>
+            </div>
+            <div class="col-4">
+                <img src="img/product-6.jpg">
+                <h4>Black Puma T-shirt</h4>
+                <p>RM40.00</p>
+            </div>
+            <div class="col-4">
+                <img src="img/product-2.jpg">
+                <h4>Black HRX Jogging Shoes</h4>
+                <p>RM45.00</p>
+            </div>
+        </div>
+
+    </div>
 
     <footer>
         <div class="footer-top">
@@ -123,6 +183,6 @@
         <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
     </footer>
     
-    <script src="../assets/js/product/product.js"></script>
+    <script src="../../assets/js/product.js"></script>
 </body>
 </html>
