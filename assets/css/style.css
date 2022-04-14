@@ -1,1 +1,78 @@
+:root {
+    --no-of-img: 3;
+    --1-3-percent: calc(100% / var(--no-of-img));
+}
 
+#carousel {
+    max-width: 1280px;
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    margin: auto;
+}
+  
+#slider {
+    position: relative;
+    display: flex;
+    width: calc(100% * var(--no-of-img));
+    flex-shrink: 0;
+    transition: all 0.5s;
+    user-select: none;
+}
+
+#slider section {
+    margin: 0;
+    width: var(--1-3-percent);
+    flex: 1 0 var(--1-3-percent);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#slider section.image1 {
+    background-image: url("../img/home_slider/gym.jpg");
+}
+
+#slider section.image2 {
+    background-image: url("../img/home_slider/jog.jpg");
+}
+
+#slider section.image3 {
+    background-image: url("../img/home_slider/swim.jpg");
+}
+
+/* Slider Controller */
+.arrow.next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .arrow.prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .arrow i {
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 0 2rem;
+    color: rgba(255, 255, 255, 0.678);
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .arrow i:hover {
+    color: rgb(255, 255, 255);
+  }
