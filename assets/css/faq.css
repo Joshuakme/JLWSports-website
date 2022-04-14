@@ -1,5 +1,5 @@
 .container {
-  font-family: "Open Sans", sans-serif;
+  font-family: Gotham SSm A, Gotham SSm B, Arial, sans-serif;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -50,9 +50,30 @@
 
 .contact {
   display: inline-block;
-  font-size: small;
+  font-size: 10x;
   background: cyan;
   margin: auto;
-  width: 200px;
+  width: 300px;
+  height: 30px;
   padding: 5px;
+}
+
+.header img{
+  width: 30px;
+}
+
+.description-container .header .open,
+.description-container .header .close {
+  position: absolute;
+  right: 0;
+  padding: 0 32px;
+  font-size: 22px;
+  font-weight: bolder;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.description-container .header .open.active,
+.description-container .header .close.active {
+  opacity: 1;
 }

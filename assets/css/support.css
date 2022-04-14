@@ -1,0 +1,41 @@
+* {
+    font-family: Gotham SSm A, Gotham SSm B, Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.container h2{
+    padding-top: 35px;
+    text-align: center;
+}
+
+.row {
+    padding-top: 100px;
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col-2 a{
+    font-size: 50px;
+    border: 100px;
+    font-weight: bold;
+    text-decoration: none;
+    background: rgb(223, 221, 221);
+  } 
+
+.col-2 {
+    box-sizing: border-box;
+    border: 3px solid black;
+    text-align: center;
+    flex-basis: 25px;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    transition: all 0.5s;
+ }
+
+ .col-2:hover {
+    transform: translateY(-5px);
+ }
