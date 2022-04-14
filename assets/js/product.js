@@ -7,6 +7,7 @@ const productList = [
     {
         id: 1,
         name: "Nike City Rep TR",
+        displayName: "Nike City Rep",
         type: "footwear",
         brand: "Nike",
         price: 225.00,
@@ -25,6 +26,7 @@ const productList = [
     {
         id: 2,
         name: "New Balance 5740 Women's",
+        displayName: "New Balance 5740 Women's",
         type: "footwear",
         brand: "New Balance",
         price: 519.00,
@@ -43,6 +45,7 @@ const productList = [
     {
         id: 3,
         name: "Black Nike T-shirt",
+        displayName: "Black Nike T-shirt",
         type: "clothing",
         brand: "Nike",
         price: 50.00,
@@ -61,6 +64,7 @@ const productList = [
     {
         id: 4,
         name: "High Shine High Waisted 7/8 Women's Running Leggings",
+        displayName: "Women's Running Leggings",
         type: "clothing",
         brand: "Puma",
         price: 149.00,
@@ -79,6 +83,7 @@ const productList = [
     {
         id: 5,
         name: "Woman's Tank",
+        displayName: "Woman's Tank",
         type: "clothing",
         brand: "Nike",
         price: 129.00,
@@ -97,6 +102,7 @@ const productList = [
     {
         id: 6,
         name: "Nike Air Men's Trousers",
+        displayName: "Nike Air Men's Trousers",
         type: "clothing",
         brand: "Nike",
         price: 299.00,
@@ -115,6 +121,7 @@ const productList = [
     {
         id: 7,
         name: "Aeon Rewind Women's Trainers",
+        displayName: "Aeon Rewind Trainers (W)",
         type: "footwear",
         brand: "Puma",
         price: 209.00,
@@ -133,6 +140,7 @@ const productList = [
     {
         id: 8,
         name: "Evostripe Women's Tee",
+        displayName: "Evostripe Women's Tee",
         type: "clothing",
         brand: "Puma",
         price: 59.00,
@@ -151,6 +159,7 @@ const productList = [
     {
         id: 9,
         name: "Nike ZoomX Invincible Run Flyknit 2",
+        displayName: "Nike ZoomX Flyknit 2",
         type: "footwear",
         brand: "Nike",
         price: 779.00,
@@ -168,10 +177,11 @@ const productList = [
     },
     {
         id: 10,
-        name: "Nike Air Men's Trousers",
+        name: "Nike Revolution 6 Next Nature",
+        displayName: "Nike Revolution Next Nature",
         type: "clothing",
         brand: "Nike",
-        price: 299.00,
+        price: 225.00,
         size: clothingSize,
         quantity: 50,
         images: ["../assets/img/product/nike/nike5a.jpg", 
@@ -187,6 +197,7 @@ const productList = [
     {
         id: 11,
         name: `Ignite 3" Women's Shorts`,
+        displayName: `Ignite 3" Women's Shorts`,
         type: "clothing",
         brand: "Nike",
         price: 69.00,
@@ -204,11 +215,12 @@ const productList = [
     },
     {
         id: 12,
-        name: "Evostripe Women's Tee",
-        type: "clothing",
+        name: "HYBRID NX Men's Running Shoes",
+        displayName: "HYBRID NX Running Shoes",
+        type: "footwear",
         brand: "Puma",
-        price: 59.00,
-        size: clothingSize,
+        price: 255.00,
+        size: ukSize,
         quantity: 50,
         images: ["../assets/img/product/puma/puma4a.jpg", 
                 "../assets/img/product/puma/puma4a-gallery.jpg",
@@ -221,33 +233,60 @@ const productList = [
                 ]
     },
 ]
-
-console.log(productList)
-
+let filteredProductList;
 
 
-let count = 0;
-let rowLength;
-if(productList.length % 4 === 0) {
-    rowLength = productList.length / 4;
-} else if(productList.length % 4 != 0) {
-    rowLength = Math.ceil(productList.length / 4);
-    console.log(rowLength)
-}
 
-let productRow;
-for(let r=0; r<rowLength; r++) {
-    productRow = productContainer(r);     
+// Define Filter Constant
+const filterBtn = document.getElementById("filter-btn");
 
-    for(let c=0; c<4; c++) {
-        if(count === productList.length || c === 4) {
+// Add Event Listeners
+filterBtn.addEventListener("change", filterProducts);
+
+
+function filterProducts(e) {
+    console.log(e.target.value)
+    console.log(productList)
+
+    switch(e.target.value) {
+        case "lth": 
+            productList.sort((a, b) => a.price - b.price);
+            break; 
+        case "htl":
+            productList.sort((b, a) => a.price - b.price);
             break;
-        } else {
-            count = productCard(productRow, count);
+        default: 
+            productList.sort((a, b) => a.id - b.id);
+            break;
+    }
+
+    RenderFilteredProducts();
+}
+    
+function RenderProducts() {
+    let count = 0;
+
+    let rowLength;
+    if(productList.length % 4 === 0) {
+        rowLength = productList.length / 4;
+    } else if(productList.length % 4 != 0) {
+        rowLength = Math.ceil(productList.length / 4);
+        console.log(rowLength)
+    }
+
+    for(let r=0; r<rowLength; r++) {
+        let productRow;
+        productRow = productContainer(r);     
+    
+        for(let c=0; c<4; c++) {
+            if(count === productList.length || c === 4) {
+                break;
+            } else {
+                count = productCard(productRow, count);
+            }
         }
     }
 }
-
 
 function productContainer(r) {
     const productsContainer = document.getElementById("products-box-container");
@@ -283,7 +322,7 @@ function productCard(productRow, count) {
     productCol.classList.add("col-4");
     productLink.setAttribute("href", `../product/detail.html`);
     productImg.setAttribute("src", `${productList[count].images[0]}`);
-    productName.innerText = `${productList[count].name}`;
+    productName.innerText = `${productList[count].displayName}`;
     productPara.innerText = `RM${productList[count].price}`;
     
     // productImg.addEventListener("click", ())
@@ -291,9 +330,28 @@ function productCard(productRow, count) {
     return count;
 }
 
+function RenderFilteredProducts(productList) {
+    const productsContainer = document.getElementById("products-box-container");
+    // Create Elements Needed to buid container
+    const productRow = document.getElementsByClassName("row");
+    
+
+    // Remove all child Element in the Product Container
+    while(productsContainer.firstChild) {
+        productsContainer.removeChild(productsContainer.firstChild)
+    }
+
+    RenderProducts()
+
+}
 
 
 
+
+
+
+
+RenderProducts();
 
 
 
