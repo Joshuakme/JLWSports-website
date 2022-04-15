@@ -324,7 +324,9 @@ Phone.addEventListener("change", (e) => {
     contactInfo.phone = e.target.value
 })
 
-const PaymentButton=document.getElementsByClassName("payment")
-PaymentButton[0].addEventListener("click", () => {
+const ContactForm=document.getElementById("checkout-address")
+ContactForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    location.href="payment.html"
     localStorage.setItem("checkout_Info", JSON.stringify(submitCheckout))
 })
