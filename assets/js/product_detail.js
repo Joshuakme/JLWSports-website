@@ -321,7 +321,6 @@ addToCartButton[0].addEventListener("click", () => {
 
 
 
-
 // productViewImg[0].onclick = function()
 // {
 //     productImg.src = productViewImg [0].src;
