@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JLWSprots Malaysia Official Online Store">
+    <meta name="keywords" content="JWLS, Sports, Online Store">
+    <title>Checkout | JLWSports</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/nav_logo.png">
+        <!-- Font Awesome cdnjs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/base.css">
+    <!-- Checkout Styles -->
+    <link rel="stylesheet" href="./assets/css/checkout.css" /> 
+
+</head>
+<body>
+    <header>      
+        <nav>   
+            <img src="./assets/img/nav_logo.png" alt="JLWS Logo">      
+            <ul class="navLink-wrapper">
+                <li><a href="#index.html">Home</a></li>
+                <li><a href="#product/product.html">Product</a></li>
+                <li><a href="#support/support.html">Support</a></li>
+                <li><a href="#aboutUs.html">About Us</a></li>
+                <li><a href="#cart/cart.html">Cart</a></li>
+            </ul>
+            <!-- <input type="text" name="" id=""> -->
+            <img id="search-btn" src="./assets/img/icons/search.svg" alt="search-icon">
+        </nav>
+    </header>
+
+    <section class="checkout">
+      <div class="checkout-left">
+        <div class="checkout-data">
+            <h1><u>CHECKOUT</u></h1>
+            <p>1. ADDRESSES</p>
+        </div>
+
+            <form id="checkout-address">
+                    <label for="first-name"></label>
+                    <input type="text" placeholder="FIRST NAME*" name="first-name" id="first-name" required>
+                
+                    <label for="address1"></label>
+                    <input type="text" placeholder="ADDRESS 1*" name="address1" id="address1" required>
+                
+                    <label for="address2"></label>
+                    <input type="text" placeholder="ADDRESS 2*" name="address2" id="address2" required>
+
+                    <label for="postcode"></label>
+                    <input type="text" placeholder="POST CODE*" name="postcode" id="postcode" required>
+
+                    <label for="city"></label>
+                    <input type="text" placeholder="CITY*" name="city" id="city" required>      
+                    
+                    <label for="state"></label>
+                        <div class="select-state">
+                            <select id="state" name="state">
+                                <option value="Johor">Johor Darul Ta'zim</option>
+                                <option value="Kedah">Kedah Darul Aman</option>
+                                <option value="Kelantan">Kelantan Darul Naim</option>
+                                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                <option value="Labuan">Labuan</option>
+                                <option value="Melaka">Melaka</option>
+                                <option value="Negeri Sembilan">Negeri Sembilan Darul Khusus</option>
+                                <option value="Pahang">Pahang Darul Makmur</option>
+                                <option value="Penang">Penang</option>
+                                <option value="Perak">Perak Darul Ridzuan</option>
+                                <option value="Perlis">Perlis Indera Kayangan</option>
+                                <option value="Putrajaya">Putrajaya</option>
+                                <option value="Sabah">Sabah</option>
+                                <option value="Sarawak">Sarawak</option>
+                                <option value="Selangor">Selangor Darul Ehsan</option>
+                                <option value="Terangganu">Terangganu Darul Iman</option>
+                            </select>
+                        </div>
+
+                    <label for="country"></label>
+                    <div class="select-country">
+                    <select id="country" name="country">
+                        <option value="Malaysia">Malaysia</option>
+                    </select>
+                </div>
+            </form>
+
+        <section class="checkout-contact">
+            <div class="c-contact">
+                <h2>Enter Contact Info</h2>
+            </div>
+
+            <form id="checkout-contact">
+                <label for="Email"></label>
+                <input type="text" placeholder="EMAIL*" name="Email" id="Email" required>
+            
+                <label for="phone"></label>
+                <input type="text" placeholder="PHONE EX: 0123456789*" name="phone" id="phone" required>
+            </form>
+        </section>
+      </div>  
+
+      <div class="checkout-right">
+          <h1>ORDER DETAILS</h1>
+          <hr>
+        <!-- PRODUCT DETAILS (add in afterwards) -->
+        <hr>
+        <p><strong>Apply a Promo Code</strong></p>
+            <form id="promo-codes">
+                <label for="promo"></label>
+                <input type="text" placeholder="Insert a Promo Code" name="promo" id="promo">
+                <button class="apply">APPLY</button>
+
+        <p>Sub Total</p>
+        <p>Shipping Costs</p>
+        <p><strong>Estimated Total</strong></p>
+        <p>Please note that our estimated delivery lead times are as follow:</p>
+        <p><strong>Klang Valley - </strong> 3 to 5 working days</p>
+        <p><strong>Peninsular - </strong>5 to 7 working days</p>
+        <p><strong>Sabah/Sarawak - </strong>9 to 13 working days</p>
+        <button class="payment"><i class="fa-solid fa-credit-card"></i>&nbsp;CONTINUE TO PAYMENT</button>
+         </div>
+    </section>
+
