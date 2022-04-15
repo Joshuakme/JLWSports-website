@@ -6,29 +6,30 @@
     <meta name="description" content="JLBSprots Malaysia Official Online Store">
     <meta name="keywords" content="JLWS, Sports, Online Store, Nike, Adidas, Puma, Outfit, Sportwear, Covid, pandemic">
     <title>Payment | JLWSports Malaysia</title>
-    <link rel="icon" type="image/x-icon" href="./assets/img/nav_logo.png">
+    <link rel="icon" type="image/x-icon" href="../assets/img/nav_logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/base.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/payment.css">
     <!-- Paypal -->
     <script src="https://www.paypal.com/sdk/js?client-id=Aer7IIEPTKxBUBaHn6eAjJBkxcPDoEj0nuYHExmy76G4s5QR7foTE6X9RqucrkOhbzVoidnW47gK4jPs"></script>
+    <script src="https://sandbox.src.mastercard.com/sdk/srcsdk.mastercard.js"></script>
 </head>
 <body>
     <header>      
         <nav>   
-            <img src="./assets/img/nav_logo.png" alt="JLWS Logo">  
+            <img src="../assets/img/nav_logo.png" alt="JLWS Logo">  
             <div class="nav-space"></div>    
             <ul class="navLink-wrapper">
-                <li><a href="#index.html" class="nav-link">Home</a></li>
+                <li><a href="/" class="nav-link">Home</a></li>
                 <div class="div-line"></div>
-                <li><a href="#product/product.html" class="nav-link">Product</a></li>
+                <li><a href="../product/product.html" class="nav-link">Product</a></li>
                 <div class="div-line"></div>
-                <li><a href="#support/support.html" class="nav-link">Support</a></li>
+                <li><a href="../support/support.html" class="nav-link">Support</a></li>
                 <div class="div-line"></div>
-                <li><a href="#aboutUs.html" class="nav-link">About Us</a></li>
+                <li><a href="../aboutUs.html" class="nav-link">About Us</a></li>
                 <div class="div-line"></div>
-                <li><a href="#cart/cart.html" class="nav-link">Cart</a></li>
+                <li><a href="../cart/cart.html" class="nav-link">Cart</a></li>
                 <div class="div-line"></div>
             </ul>
             <!-- <input type="text" name="" id=""> -->
@@ -44,14 +45,30 @@
 
     <section class="content-wrapper">
         <div class="payment-wrapper">
-            <div class="payment-left">
-                <h2 class="payment-left-title">Enter Your Payment Details</h2>
+            <div class="payment-top">        
+                <div class="checkout-summary">
+                    <h2 class="checkout-summary-title">Order Summary</h2>
+                    <div class="order-summary-breakdown">
+                        <div class="Total">
+                            <p class="SubTotal">Sub Total</p>
+                            <p class="Shipping">Shipping Costs</p>
+                            <p class="EsTotal">Estimated Total</p>
+                        </div>
+    
+                        <div class="CheckoutPrice">
+                            <p class="SubTotal-Price"></p>
+                            <p class="Shipping-Price"></p>
+                            <p class="EsTotal-Price"></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="payment-bottom">
+                <h2 class="payment-top-title">Select Your Payment Gateway</h2>
                 <div class="payment">
                     <div id="paypal"></div>
                 </div>
-            </div>
-            <div class="payment-right">
-    
             </div>
         </div>
     </section>
@@ -70,14 +87,14 @@
                     </div> -->
                 </div>
             </div>
-
+  
             <div class="div-line"></div>
-
+  
             <div class="footer-mobile-bottom">
                 <div class="social-media-wrapper">
-                    <a href="#"><img src="./assets/img/icons/facebook.svg" alt="Facebook Icon"></a>
-                    <a href="#"><img src="./assets/img/icons/instagram.svg" alt="Instagram Icon"></a>
-                    <a href="#"><img src="./assets/img/icons/twitter.svg" alt="Twitter Icon"></a>
+                    <a href="https://www.facebook.com/JLWSports-Malaysia-105062048849157"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jlwsportsmalaysia/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com/jlwsportsmy"><i class="fab fa-twitter"></i></a>
                 </div>
     
         
@@ -85,12 +102,12 @@
                     <h2 id="footer-navLinks">Navigation Links</h2>
                     <ul class="footer-navlink-links">
                         <div class="footer-nav">
-                            <li><a href="/index.html">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li><a href="/product/product.html">Product</a></li>     
                         </div>
                         <div class="footer-nav">
-                            <li><a href="/support/support.html">Support</a></li>
-                            <li><a href="/aboutUs.html">About Us</a></li>
+                            <li><a href="#support/support.html">Support</a></li>
+                            <li><a href="#aboutUs.html">About Us</a></li>
                         </div>
                         
                         <div class="footer-nav">
@@ -98,18 +115,23 @@
                         </div>
                     </ul>
                 </div>
+  
+                <div class="footer-payment-options">
+                    <div id="paypal">
+  
+                    </div>
+  
+                </div>
             </div>
-
+  
             
         </div>
         
         <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
     </footer>
     
-    
     <!-- Link JS Here -->
-    <script src="./assets/js/base.js"></script>
-    <script src="./assets/js/index.js"></script>
-    <script src="./assets/js/payment.js"></script>
+    <script src="../assets/js/base.js" defer></script>
+    <script src="../assets/js/payment.js" defer></script>
 </body>
 </html>
