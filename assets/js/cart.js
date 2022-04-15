@@ -245,3 +245,101 @@ const productList = [
         detailPageURL: "./detail/puma4-detail.html"
     },
 ]
+
+let selectedProductList;
+let cartselectedProduct = getSelectedProduct()
+
+function getSelectedProduct() {
+
+    selectedProductList = JSON.parse(localStorage.getItem("selected_product"))
+    console.log(selectedProductList)
+    for(let i=0;i<productList.length;i++){
+        if (productList[i].id===selectedProductList.id){
+            return productList[i]
+        }   
+    }
+}
+
+// Cart Product Image
+const cartContainer=document.getElementsByClassName("cart-product")
+const productImage=document.createElement("img")
+
+cartContainer[0].appendChild(productImage)
+productImage.setAttribute("src", cartselectedProduct.images[0])
+
+// Cart Product Name
+const cartDetailElement=document.createElement("div")
+const CartDetailLeftElement=document.createElement("div")
+const productNameElement=document.createElement("h1")
+
+cartContainer[0].appendChild(cartDetailElement)
+cartDetailElement.classList.add("CartDetail")
+
+cartDetailElement.appendChild(CartDetailLeftElement)
+CartDetailLeftElement.classList.add("CartDetail-Left")
+
+CartDetailLeftElement.appendChild(productNameElement)
+productNameElement.classList.add("ProductName")
+productNameElement.innerText = `${cartselectedProduct.name}`
+
+// Cart Product Size
+const CartProductSize=document.createElement("p")
+CartDetailLeftElement.appendChild(CartProductSize)
+CartProductSize.innerText = `Size: ${selectedProductList.size}`
+
+// Cart Product Quantity
+const ProductQuantity=document.createElement("input")
+CartDetailLeftElement.appendChild(ProductQuantity)
+ProductQuantity.setAttribute("type", "number")
+ProductQuantity.setAttribute("value", `${selectedProductList.qty}`)
+ProductQuantity.setAttribute("min", "1")
+ProductQuantity.setAttribute("max", `${cartselectedProduct.quantity}`)
+
+ProductQuantity.addEventListener("change", (e) => {
+    localStorage.removeItem("selected_product")
+    localStorage.setItem("selected_product", JSON.stringify({id: selectedProductList.id, size: selectedProductList.size, qty: e.target.value}));
+    location.reload()
+})
+let updatedSelectedProduct=getSelectedProduct()
+
+// Delete Button
+const DeleteButton=document.createElement("button")
+CartDetailLeftElement.appendChild(DeleteButton)
+DeleteButton.classList.add("deletebutton")
+const DeleteIcon=document.createElement("i")
+DeleteButton.appendChild(DeleteIcon)
+
+DeleteIcon.classList.add("fa-solid")
+DeleteIcon.classList.add("fa-trash")
+DeleteIcon.addEventListener("click", () => {
+    localStorage.removeItem("selected_product")
+    location.reload()
+})
+
+// Cart Detail Right
+const CartDetailRight=document.createElement("div")
+CartDetailRight.classList.add("OriPrice")
+cartDetailElement.appendChild(CartDetailRight)
+
+const ProductPrice=document.createElement("p")
+CartDetailRight.appendChild(ProductPrice)
+ProductPrice.innerText = `RM ${cartselectedProduct.price}.00`
+
+// Cart- Checkout
+const SubTotal=document.getElementsByClassName("SubTotal-Price")
+const Shipping=document.getElementsByClassName("Shipping-Price")
+const EstimatedTotal=document.getElementsByClassName("EsTotal-Price")
+let SubTotalQty=updatedSelectedProduct.price * selectedProductList.qty
+
+SubTotal[0].innerText=`RM ${SubTotalQty}.00`
+Shipping[0].innerText= `Free Shipping`
+EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
+
+//Checkout Button
+const checkoutBtn=document.getElementsByClassName("check")
+checkoutBtn[0].setAttribute("href", `checkout.html?id=${cartselectedProduct.id}`)
+checkoutBtn[0].addEventListener("click", () => {
+    localStorage.setItem("checkout_price", JSON.stringify({SubTotal: SubTotalQty, Shipping: 0, EstimatedTotal: SubTotalQty + 0}))
+})
+
+

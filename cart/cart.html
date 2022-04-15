@@ -53,24 +53,33 @@
             </div>
 
             <section class="cart">
+                <h1>MY SHOPPING CART</h1>
                 <div class="MyCart">
-                    <h1>MY SHOPPING CART</h1>
                         <div class="cart-product">
-                            
                         </div>
                         <div class="cart-checkout">
                             <p><strong>Apply a Promo Code</strong></p>
                             <form id="promo-codes">
                                 <label for="promo"></label>
                                 <input type="text" placeholder="Insert a Promo Code" name="promo" id="promo">
-                                <button class="apply">APPLY</button>
-                
-                        <p>Sub Total</p>
-                        <p>Shipping Costs</p>
-                        <p><strong>Estimated Total</strong></p>
-                        <button class="check"><i class="fa-solid fa-credit-card"></i>&nbsp;CHECKOUT</button>
-         </div>
-    </section>
+                                <button class="applyCart">APPLY</button>
+                            </form> 
+                            
+                            <div class="Checkout-Total">
+                                <div class="Total">
+                                    <p class="SubTotal">Sub Total</p>
+                                    <p class="Shipping">Shipping Costs</p>
+                                    <p class="EsTotal">Estimated Total</p>
+                                </div>
+    
+                                <div class="CheckoutPrice">
+                                    <p class="SubTotal-Price"></p>
+                                    <p class="Shipping-Price"></p>
+                                    <p class="EsTotal-Price"></p>
+                                </div>
+                            </div>
+                            
+                        <a class="check"><i class="fa-solid fa-credit-card"></i>&nbsp;CHECKOUT</a>
                         </div>
                 </div>
             </section>
@@ -135,6 +144,6 @@
             </footer>
         
         <!-- Link JS Here -->
-        <script src="./assets/js/app.js"></script>
+        <script src="../assets/js/cart.js"></script>
         </body>
         </html>
