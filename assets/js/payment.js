@@ -1,4 +1,10 @@
-let checkout_price = 70;
+
+
+let checkoutPrice = JSON.parse(localStorage.getItem("checkout_price"));
+
+let TotalPaymentPrice = checkoutPrice.EstimatedTotal;
+
+
 
 paypal.Buttons({
     style: {
@@ -12,8 +18,7 @@ paypal.Buttons({
         return actions.order.create({
           purchase_units: [{
             amount: {
-                currency_code: 'MYR',
-                value: checkout_price
+                value: TotalPaymentPrice
             }
           }]
         });
@@ -26,3 +31,14 @@ paypal.Buttons({
         });
       }
   }).render('#paypal');
+
+
+const SubTotal = document.getElementsByClassName("SubTotal-Price");
+const Shipping = document.getElementsByClassName("Shipping-Price");
+const EstimatedTotal = document.getElementsByClassName("EsTotal-Price");
+let SubTotalQty = checkoutPrice.SubTotal
+
+
+SubTotal[0].innerText=`RM ${SubTotalQty}.00`
+Shipping[0].innerText= `RM 0.00`
+EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
