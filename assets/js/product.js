@@ -322,7 +322,7 @@ function productCard(productRow, count) {
 
     // Set content and attributes
     productCol.classList.add("col-4");
-    productLink.setAttribute("href", `${productList[count].detailPageURL}?id=${productList[count].id}`);
+    productLink.setAttribute("href", `./detail.html?id=${productList[count].id}`);
     productImg.setAttribute("src", `${productList[count].images[0]}`);
     productName.innerText = `${productList[count].displayName}`;
     productPara.innerText = `RM${productList[count].price}`;
@@ -342,7 +342,6 @@ function RenderFilteredProducts(productList) {
     }
 
     RenderProducts()
-
 }
 
 
