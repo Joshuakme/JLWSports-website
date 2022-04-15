@@ -34,7 +34,7 @@ const productList = [
         size: ukSize,
         quantity: 50,
         images: ["../assets/img/product/newbalance/nb1a.jpg", 
-                "../assets/img/product/newbalance/nb1a-gallery.jpg",
+                "../assetsimg/product/newbalance/nb1a-gallery.jpg",
                 "../assets/img/product/newbalance/nb1b.jpg", 
                 "../assets/img/product/newbalance/nb1b-gallery.jpg",
                 "../assets/img/product/newbalance/nb1c.jpg", 
@@ -246,138 +246,32 @@ const productList = [
     },
 ]
 
+let selectedProductList;
+let cartselectedProduct = getSelectedProduct()
 
-const productDetaiLWrapper = document.getElementById('product-detail-container');
-// Email Loading Modal
-const emailModalDiv = document.createElement('div');
-const modalLoadingSpan = document.createElement('span');
-const loadingText = document.createElement('p');
-const loadingSpinner = document.createElement('div');
+function getSelectedProduct() {
 
-let selectedId;
-let selectedProduct;
-let selectedProductName;
-let selectedSize;
-let selectedQty;
-
-
-const params = new URLSearchParams(window.location.search);
-if(params.has("id")) {
-    selectedId = parseInt(params.get("id"));
-}
-
-// Get the selected product ID
-for(let i=0; i<productList.length; i++) {
-    if(productList[i].id === selectedId) {
-        selectedProduct = productList[i];
-        selectedProductName = selectedProduct.name;
+    selectedProductList = JSON.parse(localStorage.getItem("selected_product"))
+    console.log(selectedProductList)
+    for(let i=0;i<productList.length;i++){
+        if (productList[i].id===selectedProductList.id){
+            return productList[i]
+        }   
     }
 }
 
-
-// Setting Page Title
-document.title = selectedProductName + " | JLWSports Malaysia";
-
-
-const activeImage = document.getElementById("productImg");
-const galleryImgList = document.getElementsByClassName("product-view-img");
-let galleryImgIndex = 1;
-let ImgIndex;
-
-
-
-
-
-activeImage.setAttribute("src", selectedProduct.images[0]);
-
-for(let i=0; i<4; i++) {
-    galleryImgList[i].setAttribute("src", selectedProduct.images[galleryImgIndex]);
-    galleryImgIndex += 2;
+function getCheckoutPrices() {
+    return JSON.parse(localStorage.getItem("checkout_price"))
 }
+let CheckoutPriceList = getCheckoutPrices()
 
+// Cart- Checkout
+const SubTotal=document.getElementsByClassName("SubTotal-Price")
+const Shipping=document.getElementsByClassName("Shipping-Price")
+const EstimatedTotal=document.getElementsByClassName("EsTotal-Price")
+let SubTotalQty=CheckoutPriceList.SubTotal
+SubTotal[0].innerText=`RM ${SubTotalQty}.00`
+Shipping[0].innerText= `Free Shipping`
+EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
 
-// Saving Value Part
-const productImg = document.getElementById("productImg");
-const productViewImg = document.getElementsByClassName("product-view-img");
-const addToCartButton = document.getElementsByClassName("add-to-cart-btn");
-const sizeSelect = document.getElementById("product-size-choice");
-const qtySelect = document.getElementById("product-qty-choice");
-
-qtySelect.setAttribute("min", "0");
-qtySelect.setAttribute("max", `${selectedProduct.quantity}`);
-
-sizeSelect.addEventListener("change", (e) => {
-    selectedSize = e.target.value;
-})
-
-selectedQty = qtySelect.value;
-qtySelect.addEventListener("change", (e) => {
-    selectedQty = e.target.value;
-})
-
-addToCartButton[0].addEventListener("click", () => {
-    if(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity)) {
-        loadLoadingModal();
-        localStorage.setItem("selected_product", JSON.stringify({id: selectedId, size: selectedSize, qty: selectedQty}));
-    } else {
-        alert("Plese fill in the field!!!")
-    }
-})
-
-
-function loadLoadingModal() {
-    // Add Loading Modal to let user indicate the process is still going
-        // Create Modal div <div class="modal" id="email-sub-modal"></div>
-    emailModalDiv.classList.add("modal");
-    emailModalDiv.id = "email-sub-modal";
-    productDetaiLWrapper.appendChild(emailModalDiv);
-
-    const emailSubModal = document.getElementById('email-sub-modal');
-
-    // Create Modal span <span class="loadingBox" id="email-sub-modal-loading"></span>
-    modalLoadingSpan.classList.add("loadingBox");
-    modalLoadingSpan.id = "email-sub-modal-loading";
-    emailSubModal.appendChild(modalLoadingSpan);
-
-    // Create Modal paragraph <p class="loadingText">Loading...</p>
-    loadingText.classList.add("loadingText");
-    loadingText.innerText = "Loading..."
-    modalLoadingSpan.appendChild(loadingText);
-
-    // Create Modal Loading Spinner
-    loadingSpinner.classList.add("loadingSpinner");
-    modalLoadingSpan.appendChild(loadingSpinner);
-
-    setTimeout(closeLoadingModal, 1500);    
-}
-
-
-function closeLoadingModal() {
-    emailModalDiv.remove();
-    modalLoadingSpan.remove();
-    loadingText.remove();
-
-    // Display Success Message
-    alert(`You have added to cart!!! Please checkout there...`);
-
-}
-
-
-
-
-// productViewImg[0].onclick = function()
-// {
-//     productImg.src = productViewImg [0].src;
-// }
-// productViewImg[1].onclick = function()
-// {
-//     productImg.src = productViewImg [1].src;
-// }
-// productViewImg[2].onclick = function()
-// {
-//     productImg.src = productViewImg [2].src;
-// }
-// productViewImg[3].onclick = function()
-// {
-//     productImg.src = productViewImg [3].src;
-// }
+console.log(selectedProductList)

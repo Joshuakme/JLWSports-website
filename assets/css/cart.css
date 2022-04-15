@@ -1,0 +1,115 @@
+:root {
+  --theme-yellow: #e2cc4e;
+  --theme-red: #c30032;
+  --border-grey: rgb(235, 235, 235);
+  --div-grey: rgba(207, 202, 202, 0.719);
+}
+
+.yellow-cart p,.yellow-cart a{
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center; 
+  background-color: #FEF667; 
+  height: 1.5rem;
+}
+
+.cart{
+    width:80vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.cart h1{
+  font-size: 20px;
+}
+
+.MyCart{
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-product{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cart-product img{
+  width:280px;
+  height:180px;
+  position:absolute;
+  top:150px;
+  left:50px;
+  margin:40px;
+}
+
+.deletebutton{
+  width:10px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  margin: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.deletebutton:hover{
+color: var(--theme-red);
+transform: translateY(-5px);
+}
+
+.deletebutton i{
+  font-size: 15px;
+}
+
+.cart-checkout p{
+  width: 40%;
+  margin:50px;
+  font-size: 15px;
+}
+
+.cart-checkout{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.Checkout-Total{
+  display: flex;
+  flex-direction: row;
+}
+
+.Total{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.CheckoutPrice{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  }
+
+.applyCart,.check {
+    background-color: var(--border-grey);
+    border: none;
+    color: var(--theme-red);
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 10px 15px;
+    cursor: pointer;
+  }

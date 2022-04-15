@@ -34,7 +34,7 @@ const productList = [
         size: ukSize,
         quantity: 50,
         images: ["../assets/img/product/newbalance/nb1a.jpg", 
-                "../assets/img/product/newbalance/nb1a-gallery.jpg",
+                "../assetsimg/product/newbalance/nb1a-gallery.jpg",
                 "../assets/img/product/newbalance/nb1b.jpg", 
                 "../assets/img/product/newbalance/nb1b-gallery.jpg",
                 "../assets/img/product/newbalance/nb1c.jpg", 
@@ -246,138 +246,100 @@ const productList = [
     },
 ]
 
+let selectedProductList;
+let cartselectedProduct = getSelectedProduct()
 
-const productDetaiLWrapper = document.getElementById('product-detail-container');
-// Email Loading Modal
-const emailModalDiv = document.createElement('div');
-const modalLoadingSpan = document.createElement('span');
-const loadingText = document.createElement('p');
-const loadingSpinner = document.createElement('div');
+function getSelectedProduct() {
 
-let selectedId;
-let selectedProduct;
-let selectedProductName;
-let selectedSize;
-let selectedQty;
-
-
-const params = new URLSearchParams(window.location.search);
-if(params.has("id")) {
-    selectedId = parseInt(params.get("id"));
-}
-
-// Get the selected product ID
-for(let i=0; i<productList.length; i++) {
-    if(productList[i].id === selectedId) {
-        selectedProduct = productList[i];
-        selectedProductName = selectedProduct.name;
+    selectedProductList = JSON.parse(localStorage.getItem("selected_product"))
+    console.log(selectedProductList)
+    for(let i=0;i<productList.length;i++){
+        if (productList[i].id===selectedProductList.id){
+            return productList[i]
+        }   
     }
 }
 
+// Cart Product Image
+const cartContainer=document.getElementsByClassName("cart-product")
+const productImage=document.createElement("img")
 
-// Setting Page Title
-document.title = selectedProductName + " | JLWSports Malaysia";
+cartContainer[0].appendChild(productImage)
+productImage.setAttribute("src", cartselectedProduct.images[0])
 
+// Cart Product Name
+const cartDetailElement=document.createElement("div")
+const CartDetailLeftElement=document.createElement("div")
+const productNameElement=document.createElement("h1")
 
-const activeImage = document.getElementById("productImg");
-const galleryImgList = document.getElementsByClassName("product-view-img");
-let galleryImgIndex = 1;
-let ImgIndex;
+cartContainer[0].appendChild(cartDetailElement)
+cartDetailElement.classList.add("CartDetail")
 
+cartDetailElement.appendChild(CartDetailLeftElement)
+CartDetailLeftElement.classList.add("CartDetail-Left")
 
+CartDetailLeftElement.appendChild(productNameElement)
+productNameElement.classList.add("ProductName")
+productNameElement.innerText = `${cartselectedProduct.name}`
 
+// Cart Product Size
+const CartProductSize=document.createElement("p")
+CartDetailLeftElement.appendChild(CartProductSize)
+CartProductSize.innerText = `Size: ${selectedProductList.size}`
 
+// Cart Product Quantity
+const ProductQuantity=document.createElement("input")
+CartDetailLeftElement.appendChild(ProductQuantity)
+ProductQuantity.setAttribute("type", "number")
+ProductQuantity.setAttribute("value", `${selectedProductList.qty}`)
+ProductQuantity.setAttribute("min", "1")
+ProductQuantity.setAttribute("max", `${cartselectedProduct.quantity}`)
 
-activeImage.setAttribute("src", selectedProduct.images[0]);
+ProductQuantity.addEventListener("change", (e) => {
+    localStorage.removeItem("selected_product")
+    localStorage.setItem("selected_product", JSON.stringify({id: selectedProductList.id, size: selectedProductList.size, qty: e.target.value}));
+    location.reload()
+})
+let updatedSelectedProduct=getSelectedProduct()
 
-for(let i=0; i<4; i++) {
-    galleryImgList[i].setAttribute("src", selectedProduct.images[galleryImgIndex]);
-    galleryImgIndex += 2;
-}
+// Delete Button
+const DeleteButton=document.createElement("button")
+CartDetailLeftElement.appendChild(DeleteButton)
+DeleteButton.classList.add("deletebutton")
+const DeleteIcon=document.createElement("i")
+DeleteButton.appendChild(DeleteIcon)
 
-
-// Saving Value Part
-const productImg = document.getElementById("productImg");
-const productViewImg = document.getElementsByClassName("product-view-img");
-const addToCartButton = document.getElementsByClassName("add-to-cart-btn");
-const sizeSelect = document.getElementById("product-size-choice");
-const qtySelect = document.getElementById("product-qty-choice");
-
-qtySelect.setAttribute("min", "0");
-qtySelect.setAttribute("max", `${selectedProduct.quantity}`);
-
-sizeSelect.addEventListener("change", (e) => {
-    selectedSize = e.target.value;
+DeleteIcon.classList.add("fa-solid")
+DeleteIcon.classList.add("fa-trash")
+DeleteIcon.addEventListener("click", () => {
+    localStorage.removeItem("selected_product")
+    location.reload()
 })
 
-selectedQty = qtySelect.value;
-qtySelect.addEventListener("change", (e) => {
-    selectedQty = e.target.value;
+// Cart Detail Right
+const CartDetailRight=document.createElement("div")
+CartDetailRight.classList.add("OriPrice")
+cartDetailElement.appendChild(CartDetailRight)
+
+const ProductPrice=document.createElement("p")
+CartDetailRight.appendChild(ProductPrice)
+ProductPrice.innerText = `RM ${cartselectedProduct.price}.00`
+
+// Cart- Checkout
+const SubTotal=document.getElementsByClassName("SubTotal-Price")
+const Shipping=document.getElementsByClassName("Shipping-Price")
+const EstimatedTotal=document.getElementsByClassName("EsTotal-Price")
+let SubTotalQty=updatedSelectedProduct.price * selectedProductList.qty
+
+SubTotal[0].innerText=`RM ${SubTotalQty}.00`
+Shipping[0].innerText= `Free Shipping`
+EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
+
+//Checkout Button
+const checkoutBtn=document.getElementsByClassName("check")
+checkoutBtn[0].setAttribute("href", `checkout.html?id=${cartselectedProduct.id}`)
+checkoutBtn[0].addEventListener("click", () => {
+    localStorage.setItem("checkout_price", JSON.stringify({SubTotal: SubTotalQty, Shipping: 0, EstimatedTotal: SubTotalQty + 0}))
 })
 
-addToCartButton[0].addEventListener("click", () => {
-    if(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity)) {
-        loadLoadingModal();
-        localStorage.setItem("selected_product", JSON.stringify({id: selectedId, size: selectedSize, qty: selectedQty}));
-    } else {
-        alert("Plese fill in the field!!!")
-    }
-})
 
-
-function loadLoadingModal() {
-    // Add Loading Modal to let user indicate the process is still going
-        // Create Modal div <div class="modal" id="email-sub-modal"></div>
-    emailModalDiv.classList.add("modal");
-    emailModalDiv.id = "email-sub-modal";
-    productDetaiLWrapper.appendChild(emailModalDiv);
-
-    const emailSubModal = document.getElementById('email-sub-modal');
-
-    // Create Modal span <span class="loadingBox" id="email-sub-modal-loading"></span>
-    modalLoadingSpan.classList.add("loadingBox");
-    modalLoadingSpan.id = "email-sub-modal-loading";
-    emailSubModal.appendChild(modalLoadingSpan);
-
-    // Create Modal paragraph <p class="loadingText">Loading...</p>
-    loadingText.classList.add("loadingText");
-    loadingText.innerText = "Loading..."
-    modalLoadingSpan.appendChild(loadingText);
-
-    // Create Modal Loading Spinner
-    loadingSpinner.classList.add("loadingSpinner");
-    modalLoadingSpan.appendChild(loadingSpinner);
-
-    setTimeout(closeLoadingModal, 1500);    
-}
-
-
-function closeLoadingModal() {
-    emailModalDiv.remove();
-    modalLoadingSpan.remove();
-    loadingText.remove();
-
-    // Display Success Message
-    alert(`You have added to cart!!! Please checkout there...`);
-
-}
-
-
-
-
-// productViewImg[0].onclick = function()
-// {
-//     productImg.src = productViewImg [0].src;
-// }
-// productViewImg[1].onclick = function()
-// {
-//     productImg.src = productViewImg [1].src;
-// }
-// productViewImg[2].onclick = function()
-// {
-//     productImg.src = productViewImg [2].src;
-// }
-// productViewImg[3].onclick = function()
-// {
-//     productImg.src = productViewImg [3].src;
-// }
