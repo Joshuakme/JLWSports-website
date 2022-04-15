@@ -3,7 +3,7 @@
     --theme-red: #c30032;
     --border-grey: rgb(235, 235, 235);
     --div-grey: rgba(207, 202, 202, 0.719);
-  }
+}
 
 .checkout{
     width:80vw;
@@ -146,4 +146,19 @@ select#country{
     font-weight: 800;
     margin: 4px 2px;
     cursor: pointer;
+  }
+
+  @media (max-width: 750px){
+      .checkout {
+          flex-direction: column;
+          margin: auto;
+      }
+
+      .checkout-left, .checkout-right{
+          width: 100%;
+      }
+
+      .checkout-right h1{
+          width:100%;
+      }
   }
