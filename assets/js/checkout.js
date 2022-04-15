@@ -326,5 +326,19 @@ Phone.addEventListener("change", (e) => {
 
 const PaymentButton=document.getElementsByClassName("payment")
 PaymentButton[0].addEventListener("click", () => {
+    
+
+    if (submitCheckout.address.address1 != "" && submitCheckout.address.address2 != "" && submitCheckout.address.postcode != "" && submitCheckout.address.firstname != "" && submitCheckout.address.city != "" && submitCheckout.address.state != undefined && submitCheckout.address.country != undefined && submitCheckout.contactInfo.email != "" && submitCheckout.contactInfo.phone != "" ){
+        
+    }
+    else {
+        alert("Please Fill In All The Receiver's Info !!!")
+    }
+})
+
+const ContactForm=document.getElementById("checkout-address")
+ContactForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    location.href="payment.html"
     localStorage.setItem("checkout_Info", JSON.stringify(submitCheckout))
 })

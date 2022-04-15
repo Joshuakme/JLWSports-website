@@ -19,6 +19,9 @@
     justify-content: center;
     }
     
+#Email, #phone, .payment{
+    width: 100%;
+}
 
 .checkout-left{
     width: 60%;
@@ -59,7 +62,7 @@ form{
     justify-content: center;
 }
 
-input[type=text],select {
+input[type=text],select, input[type=email], input[type=tel]{
     width: 80%;
     padding: 15px 20px;
     border-width: 1rem;
@@ -141,7 +144,6 @@ select#country{
     margin: 4px auto;
     margin-bottom: 50px;
     cursor: pointer;
-    width:80%;
   }
 
   @media (max-width: 750px){
