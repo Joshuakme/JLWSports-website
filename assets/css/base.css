@@ -62,6 +62,7 @@ nav img {
 nav ul {
   display: flex;
   flex: 1;
+
 }
 
 nav .navLink-wrapper {
