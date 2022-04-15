@@ -139,6 +139,7 @@ select#country{
     font-size: 16px;
     font-weight: 800;
     margin: 4px auto;
+    margin-bottom: 50px;
     cursor: pointer;
     width:80%;
   }
