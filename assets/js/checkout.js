@@ -252,7 +252,6 @@ let cartselectedProduct = getSelectedProduct()
 function getSelectedProduct() {
 
     selectedProductList = JSON.parse(localStorage.getItem("selected_product"))
-    console.log(selectedProductList)
     for(let i=0;i<productList.length;i++){
         if (productList[i].id===selectedProductList.id){
             return productList[i]
@@ -260,18 +259,72 @@ function getSelectedProduct() {
     }
 }
 
-function getCheckoutPrices() {
-    return JSON.parse(localStorage.getItem("checkout_price"))
+// Get Form Input
+let contactInfo = {
+    email: "",
+    phone: ""
 }
-let CheckoutPriceList = getCheckoutPrices()
+let address = {
+    firstname: "",
+    address1: "",
+    address2: "",
+    postcode: "",
+    city: "",
+    state: "",
+    country: "Malaysia"
+}
 
-// Cart- Checkout
-const SubTotal=document.getElementsByClassName("SubTotal-Price")
-const Shipping=document.getElementsByClassName("Shipping-Price")
-const EstimatedTotal=document.getElementsByClassName("EsTotal-Price")
-let SubTotalQty=CheckoutPriceList.SubTotal
-SubTotal[0].innerText=`RM ${SubTotalQty}.00`
-Shipping[0].innerText= `Free Shipping`
-EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
+let submitCheckout={
+    contactInfo: contactInfo,
+    address: address
+}
 
-console.log(selectedProductList)
+const FirstName=document.getElementById("first-name")
+const Address1=document.getElementById("address1")
+const Address2=document.getElementById("address2")
+const Postcode=document.getElementById("postcode")
+const City=document.getElementById("city")
+const State=document.getElementById("state")
+const Country=document.getElementById("country")
+const Email=document.getElementById("Email")
+const Phone=document.getElementById("phone")
+
+FirstName.addEventListener("change", (e) => {
+address.firstname = e.target.value
+})
+
+Address1.addEventListener("change", (e) => {
+    address.address1 = e.target.value
+})
+Address2.addEventListener("change", (e) => {
+    address.address2 = e.target.value
+})
+
+Postcode.addEventListener("change", (e) => {
+    address.postcode = e.target.value
+})
+
+City.addEventListener("change", (e) => {
+    address.city = e.target.value
+})
+
+State.addEventListener("change", (e) => {
+    address.state = e.target.value
+})
+
+Country.addEventListener("change", (e) => {
+    address.country = e.target.value
+})
+
+Email.addEventListener("change", (e) => {
+    contactInfo.email = e.target.value
+})
+
+Phone.addEventListener("change", (e) => {
+    contactInfo.phone = e.target.value
+})
+
+const PaymentButton=document.getElementsByClassName("payment")
+PaymentButton[0].addEventListener("click", () => {
+    localStorage.setItem("checkout_Info", JSON.stringify(submitCheckout))
+})
