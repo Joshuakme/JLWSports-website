@@ -161,7 +161,7 @@ footer {
   bottom: 0;
   background-color: white;
   box-shadow: 0px -4px 16px rgba(34, 34, 34, 0.12);
-  min-height: 20vh;
+  min-height: 16vh;
   width: 100%;
 }
 
@@ -250,18 +250,24 @@ footer .footer-mobile-bottom .social-media-wrapper {
   flex-grow: 1;
 }
 
-.social-media-wrapper a img {
+.social-media-wrapper a i {
+  font-size: 1.5rem;
   width: 40px;
   height: 40px;
   padding: 5px;
   margin: 10px;
   margin-top: 10px;
+  text-align: center;
+  line-height: 30px;
+  transition: 0.2s;
 }
 
-footer img:hover {
+footer i:hover {
   background-color: rgba(220, 220, 220, 0.5);
   box-shadow: 0px 2px 8px rgba(34, 34, 34, 0.12);
   border-radius: 50%;
+  color: var(--theme-red);
+  transform: translateY(-3px);
 }
 
 /* Footer Navigation Links */
