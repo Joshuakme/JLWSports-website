@@ -34,7 +34,7 @@ const productList = [
         size: ukSize,
         quantity: 50,
         images: ["../assets/img/product/newbalance/nb1a.jpg", 
-                "../assetsimg/product/newbalance/nb1a-gallery.jpg",
+                "../assets/img/product/newbalance/nb1a-gallery.jpg",
                 "../assets/img/product/newbalance/nb1b.jpg", 
                 "../assets/img/product/newbalance/nb1b-gallery.jpg",
                 "../assets/img/product/newbalance/nb1c.jpg", 
@@ -246,137 +246,95 @@ const productList = [
     },
 ]
 
-
-// PRODUCT PAGE
-    // Define Selected Product Variables & Constants
-    const productRow = document.getElementsByClassName("row");
-    const product = document.getElementsByClassName("col-4");
-    let selectedProduct;
-    let selectedProductName;
+let selectedId;
+let selectedProduct;
+let selectedProductName;
+let selectedSize;
+let selectedQty;
 
 
-    // Define Filter Constant
-const filterBtn = document.getElementById("filter-btn");
-
-    // Add Event Listeners
-filterBtn.addEventListener("change", filterProducts);
-
-
-
-    // Functions
-function filterProducts(e) {
-    console.log(e.target.value)
-    console.log(productList)
-
-    switch(e.target.value) {
-        case "lth": 
-            productList.sort((a, b) => a.price - b.price);
-            break; 
-        case "htl":
-            productList.sort((b, a) => a.price - b.price);
-            break;
-        default: 
-            productList.sort((a, b) => a.id - b.id);
-            break;
-    }
-
-    RenderFilteredProducts();
+const params = new URLSearchParams(window.location.search);
+if(params.has("id")) {
+    selectedId = parseInt(params.get("id"));
 }
-    
-function RenderProducts() {
-    let productRow;
 
-    productRow = productContainer();
-
-    for(let c=0; c<productList.length; c++) {
-        productCard(productRow, c);
+// Get the selected product ID
+for(let i=0; i<productList.length; i++) {
+    if(productList[i].id === selectedId) {
+        selectedProduct = productList[i];
+        selectedProductName = selectedProduct.name;
     }
 }
 
-function productContainer() {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.createElement("div");
 
-    // Append newly created elements into the DOM
-    productsContainer.appendChild(productRow);
-
-    // Set content and attributes
-    productRow.classList.add("row");        // productRow  -->   <div class="row"></div>
-
-    return productRow;
-}
-
-function productCard(productRow, count) {
-    console.log("Hi")
-    // Create Elements Needed to buid card
-    const productCol = document.createElement("div");   // const productRow = document.createElement("div");
-    const productLink = document.createElement("a");
-    const productImg = document.createElement("img");
-    const productName = document.createElement("h4");
-    const productPara = document.createElement("p");
-
-    // Append newly created elements into the DOM
-    productRow.appendChild(productCol);     // productCol  -->   <div class="col-4"></div>
-    productCol.appendChild(productLink);     // productLink  --> <a>
-    productLink.appendChild(productImg);     // <img>
-    productCol.appendChild(productName);     // <h4>Product Name</h4>
-    productCol.appendChild(productPara);     // <p>RM {Price}</p>
-
-    // Set content and attributes
-    productCol.classList.add("col-4");
-    productLink.setAttribute("href", `${productList[count].detailPageURL}?id=${productList[count].id}`);
-    productImg.setAttribute("src", `${productList[count].images[0]}`);
-    productName.innerText = `${productList[count].displayName}`;
-    productPara.innerText = `RM${productList[count].price}`;
-    
-    // productImg.addEventListener("click", ())
-}
-
-function RenderFilteredProducts(productList) {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.getElementsByClassName("row");
-    
-
-    // Remove all child Element in the Product Container
-    while(productsContainer.firstChild) {
-        productsContainer.removeChild(productsContainer.firstChild)
-    }
-
-    RenderProducts()
-
-}
-
-
-RenderProducts();
-
-
-
-
-
-// Product Detail Page
-
+// Setting Page Title
 document.title = selectedProductName + " | JLWSports Malaysia";
 
 
+const activeImage = document.getElementById("productImg");
+const galleryImgList = document.getElementsByClassName("product-view-img");
+let galleryImgIndex = 1;
+let ImgIndex;
 
-const productImg = document.getElementById("productImg")
-const productViewImg = document.getElementsByClassName("product-view-img")
 
-productViewImg[0].onclick = function()
-{
-    productImg.src = productViewImg [0].src;
+
+
+
+activeImage.setAttribute("src", selectedProduct.images[0]);
+
+for(let i=0; i<4; i++) {
+    galleryImgList[i].setAttribute("src", selectedProduct.images[galleryImgIndex]);
+    galleryImgIndex += 2;
 }
-productViewImg[1].onclick = function()
-{
-    productImg.src = productViewImg [1].src;
-}
-productViewImg[2].onclick = function()
-{
-    productImg.src = productViewImg [2].src;
-}
-productViewImg[3].onclick = function()
-{
-    productImg.src = productViewImg [3].src;
-}
+
+
+// Saving Value Part
+const productImg = document.getElementById("productImg");
+const productViewImg = document.getElementsByClassName("product-view-img");
+const addToCartButton = document.getElementsByClassName("add-to-cart-btn");
+const sizeSelect = document.getElementById("product-size-choice");
+const qtySelect = document.getElementById("product-qty-choice");
+
+qtySelect.setAttribute("min", "0");
+qtySelect.setAttribute("max", `${selectedProduct.quantity}`);
+
+sizeSelect.addEventListener("change", (e) => {
+    selectedSize = e.target.value;
+})
+
+selectedQty = qtySelect.value;
+qtySelect.addEventListener("change", (e) => {
+    selectedQty = e.target.value;
+})
+
+addToCartButton[0].addEventListener("click", () => {
+    console.log(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity))
+    if(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity)) {
+        localStorage.setItem("selected_product", JSON.stringify({id: selectedId, size: selectedSize, qty: selectedQty}));
+    } else {
+        alert("Plese fill in the field!!!")
+    }
+})
+
+
+
+
+
+
+
+// productViewImg[0].onclick = function()
+// {
+//     productImg.src = productViewImg [0].src;
+// }
+// productViewImg[1].onclick = function()
+// {
+//     productImg.src = productViewImg [1].src;
+// }
+// productViewImg[2].onclick = function()
+// {
+//     productImg.src = productViewImg [2].src;
+// }
+// productViewImg[3].onclick = function()
+// {
+//     productImg.src = productViewImg [3].src;
+// }
