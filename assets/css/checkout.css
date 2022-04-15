@@ -10,7 +10,15 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    justify-content: center;
 }
+
+.checkout-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+    
 
 .checkout-left{
     width: 60%;
@@ -120,53 +128,6 @@ select#country{
     line-height: 220%;
 }
 
-.checkout-right h1{
-    width: 40%;
-    margin:5px;
-    font-size: 20px;
-}
-
-.checkout-right{
-    width: 40%;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
-    font-size: 15px;
-}
-
-.Checkout-Total{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-.Total{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-  
-.CheckoutPrice{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.CheckoutPrice p{
-    text-align: right;
-    width: 100%;
-}
-
-.Total p{
-    text-align: left;
-    width: 100%;
-}
-
 .payment {
     background-color: var(--border-grey);
     border: none;
@@ -177,8 +138,9 @@ select#country{
     display: inline-block;
     font-size: 16px;
     font-weight: 800;
-    margin: 4px 2px;
+    margin: 4px auto;
     cursor: pointer;
+    width:80%;
   }
 
   @media (max-width: 750px){
@@ -187,11 +149,7 @@ select#country{
           margin: auto;
       }
 
-      .checkout-left, .checkout-right{
+      .checkout-left{
           width: 100%;
-      }
-
-      .checkout-right h1{
-          width:100%;
       }
   }
