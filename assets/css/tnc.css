@@ -1,0 +1,113 @@
+.tnc-layout{
+    margin: 10px 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container{
+      margin: 5vh 18vw 0 18vw;
+  }
+
+  .container h1{
+    margin: 60px 0 20px 0;
+    font-weight: 800;
+  }
+
+  .container h2{
+    color: #c30032;
+    margin: 30px 0;
+    font-weight: 600;
+  }
+
+  .container h3{
+    margin: 30px 0 10px 0;
+    font-weight: 600;
+  }
+
+  ol{
+      font-size: 1.1em;
+  }
+
+  ol.main-tnc > li{
+    list-style-position: inside;
+    text-align: left;
+    margin: 25px 0;
+    line-height: 25px;
+  }
+
+  ol > li{
+    text-align: left;
+    margin-left:20px;
+    line-height: 25px;
+  }
+
+  p{
+    font-size: 1.1em;
+    text-align: left;
+    line-height: 25px;
+    margin: 10px 0;
+  }
+
+  .button-container{
+    text-align: center;
+    margin: 20px;
+  }
+  
+  /* Back To Top Function */
+  #top-Button {
+    margin: 0;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #c30032;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  #top-Button img {
+      float: left;
+      width: 25px;
+      margin-right: 20px ;
+  }
+
+  /* For phoneview top function */
+  #phone-top-Button {
+    display: none;
+    position: fixed;
+    bottom: 200px;
+    right: 10px;
+    z-index: 50;
+    border: 5px solid #c30032;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #phone-top-Button:hover{
+    background-color: rgba(180, 50, 50, 0.5);
+  }
+
+  #phone-top-Button img{
+      width: 30px;
+  }
+
+@media only screen and (max-width: 1200px) {
+  .container{
+      margin: 5vh 10vw 0 10vw;
+  }
+}
+
+@media only screen and (max-width: 750px) { 
+  .container{
+      margin: 5vh 20px;
+  }
+
+  #top-Button{
+      display: none;
+  }
+  
+}

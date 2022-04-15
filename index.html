@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="JLBSprots Malaysia Official Online Store">
+    <meta name="description" content="JLWSprots Malaysia Official Online Store">
     <meta name="keywords" content="JLWS, Sports, Online Store, Nike, Adidas, Puma, Outfit, Sportwear, Covid, pandemic">
     <title>JLWSports Malaysia | Sports Heaven</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/nav_logo.png">
@@ -12,8 +12,9 @@
     <!-- CSS Links -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/base.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/index.css">
 </head>
+
 <body>
     <header>      
         <nav>   
@@ -41,83 +42,160 @@
             </div>
         </nav>
     </header>
+    
+    <main class="index-layout">
+       <div class="hero-image hero1">
+          <div class="hero-text-left">
+            <h3>BE THE GAME CHANGER</h3>
+            <h1>IT'S ALL IN THE GAME</h1>
+            <h5>THE ONLY WAY IS THROUGH</h5>
+            <h2>JLWSPORTS</h2>
+            <form action="./support/aboutUs.html">
+              <button class="button button_black" type="submit">EXPLORE NOW</button>
+            </form>
+          </div>
+       </div>
 
-    <section class="content-wrapper">
-        <section id="carousel">
-            <div id="slider">
-                <section class="slider-image image1"></section>
-                <section class="slider-image image2"></section>
-                <section class="slider-image image3"></section>
-            </div>
-            
-            <div class="controls">
-                <span class="arrow prev"><i class="fa-solid fa-angle-left"></i></span>
-                <span class="arrow next"><i class="fa-solid fa-angle-right"></i></span>
-              </div>
-        </section>
-    </section>
+       <div class="hero-image hero2">
+        <div class="hero-text-right">
+          <h3>YOU ARE YOUR </Br></h3>
+          <h1>ONLY LIMIT</h1> 
+          <h5>Run Happy</br>
+              Run Grumpy</br>
+              Run Fast</br>
+              Run Slow
+          </h5>
+          <h3>JUST RUN</h3>
+          <form action="./product/product.html">
+            <button class="button button_white" type="submit">BREAK THE LIMIT</button>
+          </form>
+        </div>
+     </div>
+    
+      <div class="container-yellow">
+        <img src="./assets/img/index/animation.gif" alt="New Animation">
+      </div>
+
+      <div class="image-caption-center">
+        <h2>New Collection</h2>
+        <h1>YOUR GEAR, YOUR WAY</h1>
+        <form action="./product/product.html">
+          <button class="button button_black" type="submit">SHOP NOW</button>
+        </form>
+      </div>
+
+      <div class="container-red">
+       <div class="image-caption-left">
+         <h3>WELCOME TO</h3>
+         <h2>THE NEXT</h2>
+         <h1>REVOLUTION</h1>
+       </div> 
+        <video id="promotion-video" loop>
+          <source src="./assets/video/Promo.mp4">
+        </video>
+      </div>
+      
+      <h1 class="news-heading">TRENDING</h1>
+
+      <div class="multi-container-flex flex-wrap">
+        <div onclick="newsGo1()" class="news news1">
+          <div class="newsCaption">
+            <h2>PUMA LAUNCHES LINE NEW WITH..</h2>
+          </div>
+        </div>
+
+        <div onclick="newsGo2()" class="news news2">
+          <div class="newsCaption">
+            <h2>CHAMPION AHTLETICWEAR PARTNERS WITH..</h2>
+          </div>
+        </div>
+
+        <div onclick="newsGo3()" class="news news3">
+          <div class="newsCaption">
+            <h2>THE NEXT JORDAN BRAND AIR REVEALED..</h2>
+          </div>
+        </div>
+
+        <div onclick="newsGo4()" class="news news4">
+          <div class="newsCaption">
+            <h2>TOPS WORLD'S MOST VALUABLE BRANDS LIST..</h2>
+          </div>
+        </div>
+
+        <div onclick="newsGo5()" class="news news5">
+          <div class="newsCaption">
+            <h2>INSPIRED BY RAINBOW: ADIDAS COLLABORATION..</h2>
+          </div>
+        </div>
+
+        <div onclick="newsGo6()" class="news news6">
+          <div class="newsCaption">
+            <h2>UNDER ARMOUR SPRING SALE: OWN YOUR WORKOUT..</h2>
+          </div>
+        </div>
+      </div>
+
+    </main>
 
     <footer>
-        <div class="footer-top">
-            <div class="footer-left">
-                <div id="newsletter-subscribe-wrapper">
-                    <label for="subscribe-email"><span class="highlight">Subscribe</span> to our Newsletter</label>
-                    <form method="post" action="" id="email-sub-form">
-                        <input type="email" name="email" id="subscribe-email" placeholder="example@email.com">
-                        <button id="subscribe-btn" disabled>Register</button>
-                    </form>
-                    <!-- <div class="modal" id="email-sub-modal">
-                    <span class="loadingBox" id="email-sub-modal-loading"></span>
-                    </div> -->
-                </div>
-            </div>
+      <div class="footer-top">
+          <div class="footer-left">
+              <div id="newsletter-subscribe-wrapper">
+                  <label for="subscribe-email"><span class="highlight">Subscribe</span> to our Newsletter</label>
+                  <form method="post" action="" id="email-sub-form">
+                      <input type="email" name="email" id="subscribe-email" placeholder="example@email.com">
+                      <button id="subscribe-btn" disabled>Register</button>
+                  </form>
+                  <!-- <div class="modal" id="email-sub-modal">
+                  <span class="loadingBox" id="email-sub-modal-loading"></span>
+                  </div> -->
+              </div>
+          </div>
 
-            <div class="div-line"></div>
+          <div class="div-line"></div>
 
-            <div class="footer-mobile-bottom">
-                <div class="social-media-wrapper">
-                    <a href="https://www.facebook.com/JLWSports-Malaysia-105062048849157"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/jlwsportsmalaysia/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://twitter.com/jlwsportsmy"><i class="fab fa-twitter"></i></a>
-                </div>
-    
-        
-                <div class="footer-nav-wrapper">
-                    <h2 id="footer-navLinks">Navigation Links</h2>
-                    <ul class="footer-navlink-links">
-                        <div class="footer-nav">
-                            <li><a href="#index.html">Home</a></li>
-                            <li><a href="#product/product.html">Product</a></li>     
-                        </div>
-                        <div class="footer-nav">
-                            <li><a href="#support/support.html">Support</a></li>
-                            <li><a href="#aboutUs.html">About Us</a></li>
-                        </div>
-                        
-                        <div class="footer-nav">
-                            <li><a href="#cart/cart.html">Cart</a></li>
-                        </div>
-                    </ul>
-                </div>
+          <div class="footer-mobile-bottom">
+              <div class="social-media-wrapper">
+                  <a href="https://www.facebook.com/JLWSports-Malaysia-105062048849157"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/jlwsportsmalaysia/"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://twitter.com/jlwsportsmy"><i class="fab fa-twitter"></i></a>
+              </div>
+  
+      
+              <div class="footer-nav-wrapper">
+                  <h2 id="footer-navLinks">Navigation Links</h2>
+                  <ul class="footer-navlink-links">
+                      <div class="footer-nav">
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/product/product.html">Product</a></li>     
+                      </div>
+                      <div class="footer-nav">
+                          <li><a href="#support/support.html">Support</a></li>
+                          <li><a href="#aboutUs.html">About Us</a></li>
+                      </div>
+                      
+                      <div class="footer-nav">
+                          <li><a href="/cart/cart.html">Cart</a></li>
+                      </div>
+                  </ul>
+              </div>
 
-                <div class="footer-payment-options">
-                    <div id="paypal">
+              <div class="footer-payment-options">
+                  <div id="paypal">
 
-                    </div>
+                  </div>
 
-                </div>
-            </div>
+              </div>
+          </div>
 
-            
-        </div>
-        
-        <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
-    </footer>
-    
+          
+      </div>
+      
+      <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
+  </footer>
     
     <!-- Link JS Here -->
-    <script src="./assets/js/base.js"></script>
-    <script src="./assets/js/index.js"></script>
-    
-</body>
+    <script src="./assets/css/base.css" defer></script>
+    <script src="./assets/js/index.js" defer></script>
+  </body>
 </html>

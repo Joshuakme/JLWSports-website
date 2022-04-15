@@ -1,0 +1,89 @@
+
+.storeLocation-layout{
+    margin: 30px 0;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .container{
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+  }
+
+  /*Search Filter*/
+  .searchFilter_container{
+    margin-bottom: 30px;
+  }
+
+  #search_Filter{
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 600px;
+      font-size: 16px;
+      padding: 15px 20px;
+      border: 1px solid rgb(187, 187, 187);
+      margin: 20px;
+  }
+
+  /* Flexbox */
+  .multi-container-flex {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  row-gap: 0px;
+  width: 100%;
+  }
+
+  .flex-wrap {
+  flex-wrap: wrap;
+  }
+
+  /* Location List */
+  .locator-heading{
+      margin-left: auto;
+      font-size: 2.5em;
+      font-weight: 800;
+  }
+
+  .location-region{
+    width: 90%;
+    margin-top: 30px;
+  }
+
+  .location{
+      border-top: 1px solid rgb(170, 170, 170);
+      padding: 20px;
+      margin: 10px;
+      align-items: center;
+      width: 45%;
+  }
+
+@media only screen and (max-width: 750px) {
+  .storeLocation-layout{
+    font-size: 14px;
+    width: 100vw;
+  }
+
+  .location-region{
+    margin-left: 20px;
+    margin-top: 50px;
+  }
+
+  .location{
+      width: 100%;
+  }
+
+  .searchFilter_container{
+    margin-bottom: 0;
+  }
+
+  #search_Filter{
+      width: 90%;
+  }
+
+  .locator-heading{
+      margin-left: 30px;
+  }
+}

@@ -1,0 +1,158 @@
+:root {
+    --theme-yellow: #e2cc4e;
+    --theme-red: #c30032;
+    --border-grey: rgb(235, 235, 235);
+    --div-grey: rgba(207, 202, 202, 0.719);
+}
+
+.checkout{
+    width:80vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.checkout-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    }
+    
+#Email, #phone, .payment{
+    width: 100%;
+}
+
+.checkout-left{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkout-left h1 {
+    width: 90%;
+    margin:20px auto;
+    margin-bottom: 50px;
+    font-size: 35px;;
+}
+
+.checkout-left p {
+    width:90%;
+    margin:20px auto;
+    font-size: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #E0E0E0;
+    height: 3.5rem;
+    padding: 15px;
+}
+
+.c-contact h2{
+    font-size: 15px;
+    margin-left:7%;
+}
+
+form{
+    width:100%;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input[type=text],select, input[type=email], input[type=tel]{
+    width: 80%;
+    padding: 15px 20px;
+    border-width: 1rem;
+    margin: 15px auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+select#state{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    width: 100%;
+}
+
+.select-state{
+    width:80%;
+    margin:10px auto;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.select-state::after{
+    padding: 10px;
+    content: "\25BC";
+    top:0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    margin: auto;
+    border-radius: 0 8px 8px 0;
+    height: 100%;
+    line-height: 220%;
+}
+
+select#country{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    width: 100%;
+}
+
+.select-country{
+    width:80%;
+    margin:10px auto;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.select-country::after{
+    padding: 10px;
+    content: "\25BC";
+    top:0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    margin: auto;
+    border-radius: 0 8px 8px 0;
+    height: 100%;
+    line-height: 220%;
+}
+
+.payment {
+    background-color: var(--border-grey);
+    border: none;
+    color: var(--theme-red);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 4px auto;
+    margin-bottom: 50px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 750px){
+      .checkout {
+          flex-direction: column;
+          margin: auto;
+      }
+
+      .checkout-left{
+          width: 100%;
+      }
+  }

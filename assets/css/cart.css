@@ -1,0 +1,181 @@
+:root {
+  --theme-yellow: #e2cc4e;
+  --theme-red: #c30032;
+  --border-grey: rgb(235, 235, 235);
+  --div-grey: rgba(207, 202, 202, 0.719);
+}
+
+.yellow-cart p,.yellow-cart a{
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center; 
+  background-color: #FEF667; 
+  height: 1.5rem;
+}
+
+.cart{
+    width:80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.cart h1{
+  font-size: 20px;
+}
+
+.MyCart{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.cart-product{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.cart-product h1{
+font-size: 15px;
+width: 100%;
+}
+
+.cart-product img{
+  width:280px;
+  height:180px;
+  margin:40px;
+}
+
+.cart-product .CartDetail{
+  margin-top: 40px;
+}
+
+.deletebutton{
+  width:10px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  margin: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.deletebutton:hover{
+color: var(--theme-red);
+transform: translateY(-5px);
+}
+
+.deletebutton i{
+  font-size: 15px;
+}
+
+.cart-checkout p{
+  width: 60%;
+  margin:10px 50px;
+  font-size: 15px;
+}
+
+.cart-checkout{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.Checkout-Total{
+  display: flex;
+  flex-direction: row;
+}
+
+.Total{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.CheckoutPrice{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  }
+.EsTotal{
+font-weight: 600;
+}
+
+#promo-codes{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+
+#promo{
+  padding: 8px 20px;
+  margin: 10px 0;
+  flex: 1;
+}
+
+#promo:placeholder-shown{
+  font-weight: 600;
+}
+
+.applyCart,.check, #promo-codes {
+    background-color: var(--border-grey);
+    border: none;
+    color: var(--theme-red);
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+    margin: 10px 15px;
+    cursor: pointer;
+  }
+
+  .applyCart{
+    margin-right: 0;
+  }
+
+  #promo-codes{
+    background-color: white;
+    padding: 0;
+  }
+  @media (max-width: 750px){
+    .MyCart {
+      width: 100%;
+        flex-direction: column;
+        margin: auto;
+    }
+
+.cart-product{
+  align-items: center;
+  width: 100%;
+}
+
+.cart-product h1{
+  font-size: 15px;
+  width: 100%;
+  }
+  
+.CartDetail{
+width:100%;
+}
+
+.cart-product img{
+  width:100px;
+  height:150px;
+  margin:40px;
+}
+    .cart-checkout, .Checkout-Total, .CheckoutPrice{
+        width: 100%;
+    }
+  }
