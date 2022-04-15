@@ -25,7 +25,7 @@
 
 
     // Event Listeners
-    regEmailForm.addEventListener('submit', handleEmailSub);
+    regEmailForm.addEventListener('submit', loadLoadingModal);
 
     registerNewsEmail.addEventListener('keyup', (e) => {
         if (e.target.value != '' && e.target.value != null) {
@@ -70,7 +70,7 @@
 
 
 // Handle Email Subscription Fuction
-function handleEmailSub(e) {
+function loadLoadingModal(e) {
     // Prevent the form from refreshing when submit form
     e.preventDefault();
 
@@ -96,11 +96,10 @@ function handleEmailSub(e) {
     loadingSpinner.classList.add("loadingSpinner");
     modalLoadingSpan.appendChild(loadingSpinner);
 
-    setTimeout(closeLoadingModal, 1500);    
-}
+    // Save to LocalStorage
+    localStorage.setItem("email_sub_list", JSON.parse(emailSubList))
 
-function handleEmailSubText(e) {
-    console.log(e)
+    setTimeout(closeLoadingModal, 1500);    
 }
 
 

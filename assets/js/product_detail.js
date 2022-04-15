@@ -246,6 +246,14 @@ const productList = [
     },
 ]
 
+
+const productDetaiLWrapper = document.getElementById('product-detail-container');
+// Email Loading Modal
+const emailModalDiv = document.createElement('div');
+const modalLoadingSpan = document.createElement('span');
+const loadingText = document.createElement('p');
+const loadingSpinner = document.createElement('div');
+
 let selectedId;
 let selectedProduct;
 let selectedProductName;
@@ -308,8 +316,8 @@ qtySelect.addEventListener("change", (e) => {
 })
 
 addToCartButton[0].addEventListener("click", () => {
-    console.log(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity))
     if(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity)) {
+        loadLoadingModal();
         localStorage.setItem("selected_product", JSON.stringify({id: selectedId, size: selectedSize, qty: selectedQty}));
     } else {
         alert("Plese fill in the field!!!")
@@ -317,6 +325,42 @@ addToCartButton[0].addEventListener("click", () => {
 })
 
 
+function loadLoadingModal() {
+    // Add Loading Modal to let user indicate the process is still going
+        // Create Modal div <div class="modal" id="email-sub-modal"></div>
+    emailModalDiv.classList.add("modal");
+    emailModalDiv.id = "email-sub-modal";
+    productDetaiLWrapper.appendChild(emailModalDiv);
+
+    const emailSubModal = document.getElementById('email-sub-modal');
+
+    // Create Modal span <span class="loadingBox" id="email-sub-modal-loading"></span>
+    modalLoadingSpan.classList.add("loadingBox");
+    modalLoadingSpan.id = "email-sub-modal-loading";
+    emailSubModal.appendChild(modalLoadingSpan);
+
+    // Create Modal paragraph <p class="loadingText">Loading...</p>
+    loadingText.classList.add("loadingText");
+    loadingText.innerText = "Loading..."
+    modalLoadingSpan.appendChild(loadingText);
+
+    // Create Modal Loading Spinner
+    loadingSpinner.classList.add("loadingSpinner");
+    modalLoadingSpan.appendChild(loadingSpinner);
+
+    setTimeout(closeLoadingModal, 1500);    
+}
+
+
+function closeLoadingModal() {
+    emailModalDiv.remove();
+    modalLoadingSpan.remove();
+    loadingText.remove();
+
+    // Display Success Message
+    alert(`You have added to cart!!! Please checkout there...`);
+
+}
 
 
 
