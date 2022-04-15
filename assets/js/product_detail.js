@@ -34,7 +34,7 @@ const productList = [
         size: ukSize,
         quantity: 50,
         images: ["../assets/img/product/newbalance/nb1a.jpg", 
-                "../assetsimg/product/newbalance/nb1a-gallery.jpg",
+                "../assets/img/product/newbalance/nb1a-gallery.jpg",
                 "../assets/img/product/newbalance/nb1b.jpg", 
                 "../assets/img/product/newbalance/nb1b-gallery.jpg",
                 "../assets/img/product/newbalance/nb1c.jpg", 
@@ -247,107 +247,137 @@ const productList = [
 ]
 
 
-// PRODUCT PAGE
-    // Define Selected Product Variables & Constants
-    const productRow = document.getElementsByClassName("row");
-    const product = document.getElementsByClassName("col-4");
+const productDetaiLWrapper = document.getElementById('product-detail-container');
+// Email Loading Modal
+const emailModalDiv = document.createElement('div');
+const modalLoadingSpan = document.createElement('span');
+const loadingText = document.createElement('p');
+const loadingSpinner = document.createElement('div');
+
+let selectedId;
+let selectedProduct;
+let selectedProductName;
+let selectedSize;
+let selectedQty;
 
 
-    // Define Filter Constant
-const filterBtn = document.getElementById("filter-btn");
-
-    // Add Event Listeners
-filterBtn.addEventListener("change", filterProducts);
-
-
-
-    // Functions
-function filterProducts(e) {
-    console.log(e.target.value)
-    console.log(productList)
-
-    switch(e.target.value) {
-        case "lth": 
-            productList.sort((a, b) => a.price - b.price);
-            break; 
-        case "htl":
-            productList.sort((b, a) => a.price - b.price);
-            break;
-        default: 
-            productList.sort((a, b) => a.id - b.id);
-            break;
-    }
-
-    RenderFilteredProducts();
+const params = new URLSearchParams(window.location.search);
+if(params.has("id")) {
+    selectedId = parseInt(params.get("id"));
 }
-    
-function RenderProducts() {
-    let productRow;
 
-    productRow = productContainer();
-
-    for(let c=0; c<productList.length; c++) {
-        productCard(productRow, c);
+// Get the selected product ID
+for(let i=0; i<productList.length; i++) {
+    if(productList[i].id === selectedId) {
+        selectedProduct = productList[i];
+        selectedProductName = selectedProduct.name;
     }
 }
 
-function productContainer() {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.createElement("div");
 
-    // Append newly created elements into the DOM
-    productsContainer.appendChild(productRow);
+// Setting Page Title
+document.title = selectedProductName + " | JLWSports Malaysia";
 
-    // Set content and attributes
-    productRow.classList.add("row");        // productRow  -->   <div class="row"></div>
 
-    return productRow;
+const activeImage = document.getElementById("productImg");
+const galleryImgList = document.getElementsByClassName("product-view-img");
+let galleryImgIndex = 1;
+let ImgIndex;
+
+
+
+
+
+activeImage.setAttribute("src", selectedProduct.images[0]);
+
+for(let i=0; i<4; i++) {
+    galleryImgList[i].setAttribute("src", selectedProduct.images[galleryImgIndex]);
+    galleryImgIndex += 2;
 }
 
-function productCard(productRow, count) {
-    // Create Elements Needed to buid card
-    const productCol = document.createElement("div");   // const productRow = document.createElement("div");
-    const productLink = document.createElement("a");
-    const productImg = document.createElement("img");
-    const productName = document.createElement("h4");
-    const productPara = document.createElement("p");
 
-    // Append newly created elements into the DOM
-    productRow.appendChild(productCol);     // productCol  -->   <div class="col-4"></div>
-    productCol.appendChild(productLink);     // productLink  --> <a>
-    productLink.appendChild(productImg);     // <img>
-    productCol.appendChild(productName);     // <h4>Product Name</h4>
-    productCol.appendChild(productPara);     // <p>RM {Price}</p>
+// Saving Value Part
+const productImg = document.getElementById("productImg");
+const productViewImg = document.getElementsByClassName("product-view-img");
+const addToCartButton = document.getElementsByClassName("add-to-cart-btn");
+const sizeSelect = document.getElementById("product-size-choice");
+const qtySelect = document.getElementById("product-qty-choice");
 
-    // Set content and attributes
-    productCol.classList.add("col-4");
-    productLink.setAttribute("href", `./detail.html?id=${productList[count].id}`);
-    productImg.setAttribute("src", `${productList[count].images[0]}`);
-    productName.innerText = `${productList[count].displayName}`;
-    productPara.innerText = `RM${productList[count].price}`;
-    
-    // productImg.addEventListener("click", ())
-}
+qtySelect.setAttribute("min", "0");
+qtySelect.setAttribute("max", `${selectedProduct.quantity}`);
 
-function RenderFilteredProducts(productList) {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.getElementsByClassName("row");
-    
+sizeSelect.addEventListener("change", (e) => {
+    selectedSize = e.target.value;
+})
 
-    // Remove all child Element in the Product Container
-    while(productsContainer.firstChild) {
-        productsContainer.removeChild(productsContainer.firstChild)
+selectedQty = qtySelect.value;
+qtySelect.addEventListener("change", (e) => {
+    selectedQty = e.target.value;
+})
+
+addToCartButton[0].addEventListener("click", () => {
+    if(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity)) {
+        loadLoadingModal();
+        localStorage.setItem("selected_product", JSON.stringify({id: selectedId, size: selectedSize, qty: selectedQty}));
+    } else {
+        alert("Plese fill in the field!!!")
     }
+})
 
-    RenderProducts()
+
+function loadLoadingModal() {
+    // Add Loading Modal to let user indicate the process is still going
+        // Create Modal div <div class="modal" id="email-sub-modal"></div>
+    emailModalDiv.classList.add("modal");
+    emailModalDiv.id = "email-sub-modal";
+    productDetaiLWrapper.appendChild(emailModalDiv);
+
+    const emailSubModal = document.getElementById('email-sub-modal');
+
+    // Create Modal span <span class="loadingBox" id="email-sub-modal-loading"></span>
+    modalLoadingSpan.classList.add("loadingBox");
+    modalLoadingSpan.id = "email-sub-modal-loading";
+    emailSubModal.appendChild(modalLoadingSpan);
+
+    // Create Modal paragraph <p class="loadingText">Loading...</p>
+    loadingText.classList.add("loadingText");
+    loadingText.innerText = "Loading..."
+    modalLoadingSpan.appendChild(loadingText);
+
+    // Create Modal Loading Spinner
+    loadingSpinner.classList.add("loadingSpinner");
+    modalLoadingSpan.appendChild(loadingSpinner);
+
+    setTimeout(closeLoadingModal, 1500);    
 }
 
 
-RenderProducts();
+function closeLoadingModal() {
+    emailModalDiv.remove();
+    modalLoadingSpan.remove();
+    loadingText.remove();
+
+    // Display Success Message
+    alert(`You have added to cart!!! Please checkout there...`);
+
+}
 
 
 
 
-
+// productViewImg[0].onclick = function()
+// {
+//     productImg.src = productViewImg [0].src;
+// }
+// productViewImg[1].onclick = function()
+// {
+//     productImg.src = productViewImg [1].src;
+// }
+// productViewImg[2].onclick = function()
+// {
+//     productImg.src = productViewImg [2].src;
+// }
+// productViewImg[3].onclick = function()
+// {
+//     productImg.src = productViewImg [3].src;
+// }

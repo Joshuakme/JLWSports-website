@@ -246,108 +246,100 @@ const productList = [
     },
 ]
 
+let selectedProductList;
+let cartselectedProduct = getSelectedProduct()
 
-// PRODUCT PAGE
-    // Define Selected Product Variables & Constants
-    const productRow = document.getElementsByClassName("row");
-    const product = document.getElementsByClassName("col-4");
+function getSelectedProduct() {
 
-
-    // Define Filter Constant
-const filterBtn = document.getElementById("filter-btn");
-
-    // Add Event Listeners
-filterBtn.addEventListener("change", filterProducts);
-
-
-
-    // Functions
-function filterProducts(e) {
-    console.log(e.target.value)
-    console.log(productList)
-
-    switch(e.target.value) {
-        case "lth": 
-            productList.sort((a, b) => a.price - b.price);
-            break; 
-        case "htl":
-            productList.sort((b, a) => a.price - b.price);
-            break;
-        default: 
-            productList.sort((a, b) => a.id - b.id);
-            break;
-    }
-
-    RenderFilteredProducts();
-}
-    
-function RenderProducts() {
-    let productRow;
-
-    productRow = productContainer();
-
-    for(let c=0; c<productList.length; c++) {
-        productCard(productRow, c);
+    selectedProductList = JSON.parse(localStorage.getItem("selected_product"))
+    console.log(selectedProductList)
+    for(let i=0;i<productList.length;i++){
+        if (productList[i].id===selectedProductList.id){
+            return productList[i]
+        }   
     }
 }
 
-function productContainer() {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.createElement("div");
+// Cart Product Image
+const cartContainer=document.getElementsByClassName("cart-product")
+const productImage=document.createElement("img")
 
-    // Append newly created elements into the DOM
-    productsContainer.appendChild(productRow);
+cartContainer[0].appendChild(productImage)
+productImage.setAttribute("src", cartselectedProduct.images[0])
 
-    // Set content and attributes
-    productRow.classList.add("row");        // productRow  -->   <div class="row"></div>
+// Cart Product Name
+const cartDetailElement=document.createElement("div")
+const CartDetailLeftElement=document.createElement("div")
+const productNameElement=document.createElement("h1")
 
-    return productRow;
-}
+cartContainer[0].appendChild(cartDetailElement)
+cartDetailElement.classList.add("CartDetail")
 
-function productCard(productRow, count) {
-    // Create Elements Needed to buid card
-    const productCol = document.createElement("div");   // const productRow = document.createElement("div");
-    const productLink = document.createElement("a");
-    const productImg = document.createElement("img");
-    const productName = document.createElement("h4");
-    const productPara = document.createElement("p");
+cartDetailElement.appendChild(CartDetailLeftElement)
+CartDetailLeftElement.classList.add("CartDetail-Left")
 
-    // Append newly created elements into the DOM
-    productRow.appendChild(productCol);     // productCol  -->   <div class="col-4"></div>
-    productCol.appendChild(productLink);     // productLink  --> <a>
-    productLink.appendChild(productImg);     // <img>
-    productCol.appendChild(productName);     // <h4>Product Name</h4>
-    productCol.appendChild(productPara);     // <p>RM {Price}</p>
+CartDetailLeftElement.appendChild(productNameElement)
+productNameElement.classList.add("ProductName")
+productNameElement.innerText = `${cartselectedProduct.name}`
 
-    // Set content and attributes
-    productCol.classList.add("col-4");
-    productLink.setAttribute("href", `./detail.html?id=${productList[count].id}`);
-    productImg.setAttribute("src", `${productList[count].images[0]}`);
-    productName.innerText = `${productList[count].displayName}`;
-    productPara.innerText = `RM${productList[count].price}`;
-    
-    // productImg.addEventListener("click", ())
-}
+// Cart Product Size
+const CartProductSize=document.createElement("p")
+CartDetailLeftElement.appendChild(CartProductSize)
+CartProductSize.innerText = `Size: ${selectedProductList.size}`
 
-function RenderFilteredProducts(productList) {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.getElementsByClassName("row");
-    
+// Cart Product Quantity
+const ProductQuantity=document.createElement("input")
+CartDetailLeftElement.appendChild(ProductQuantity)
+ProductQuantity.setAttribute("type", "number")
+ProductQuantity.setAttribute("value", `${selectedProductList.qty}`)
+ProductQuantity.setAttribute("min", "1")
+ProductQuantity.setAttribute("max", `${cartselectedProduct.quantity}`)
 
-    // Remove all child Element in the Product Container
-    while(productsContainer.firstChild) {
-        productsContainer.removeChild(productsContainer.firstChild)
-    }
+ProductQuantity.addEventListener("change", (e) => {
+    localStorage.removeItem("selected_product")
+    localStorage.setItem("selected_product", JSON.stringify({id: selectedProductList.id, size: selectedProductList.size, qty: e.target.value}));
+    location.reload()
+})
+let updatedSelectedProduct=getSelectedProduct()
 
-    RenderProducts()
-}
+// Delete Button
+const DeleteButton=document.createElement("button")
+CartDetailLeftElement.appendChild(DeleteButton)
+DeleteButton.classList.add("deletebutton")
+const DeleteIcon=document.createElement("i")
+DeleteButton.appendChild(DeleteIcon)
 
+DeleteIcon.classList.add("fa-solid")
+DeleteIcon.classList.add("fa-trash")
+DeleteIcon.addEventListener("click", () => {
+    localStorage.removeItem("selected_product")
+    location.reload()
+})
 
-RenderProducts();
+// Cart Detail Right
+const CartDetailRight=document.createElement("div")
+CartDetailRight.classList.add("OriPrice")
+cartDetailElement.appendChild(CartDetailRight)
 
+const ProductPrice=document.createElement("p")
+CartDetailRight.appendChild(ProductPrice)
+ProductPrice.innerText = `RM ${cartselectedProduct.price}.00`
 
+// Cart- Checkout
+const SubTotal=document.getElementsByClassName("SubTotal-Price")
+const Shipping=document.getElementsByClassName("Shipping-Price")
+const EstimatedTotal=document.getElementsByClassName("EsTotal-Price")
+let SubTotalQty=updatedSelectedProduct.price * selectedProductList.qty
 
+SubTotal[0].innerText=`RM ${SubTotalQty}.00`
+Shipping[0].innerText= `Free Shipping`
+EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
+
+//Checkout Button
+const checkoutBtn=document.getElementsByClassName("check")
+checkoutBtn[0].setAttribute("href", `checkout.html?id=${cartselectedProduct.id}`)
+checkoutBtn[0].addEventListener("click", () => {
+    localStorage.setItem("checkout_price", JSON.stringify({SubTotal: SubTotalQty, Shipping: 0, EstimatedTotal: SubTotalQty + 0}))
+})
 
 

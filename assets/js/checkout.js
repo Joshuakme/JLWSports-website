@@ -246,108 +246,32 @@ const productList = [
     },
 ]
 
+let selectedProductList;
+let cartselectedProduct = getSelectedProduct()
 
-// PRODUCT PAGE
-    // Define Selected Product Variables & Constants
-    const productRow = document.getElementsByClassName("row");
-    const product = document.getElementsByClassName("col-4");
+function getSelectedProduct() {
 
-
-    // Define Filter Constant
-const filterBtn = document.getElementById("filter-btn");
-
-    // Add Event Listeners
-filterBtn.addEventListener("change", filterProducts);
-
-
-
-    // Functions
-function filterProducts(e) {
-    console.log(e.target.value)
-    console.log(productList)
-
-    switch(e.target.value) {
-        case "lth": 
-            productList.sort((a, b) => a.price - b.price);
-            break; 
-        case "htl":
-            productList.sort((b, a) => a.price - b.price);
-            break;
-        default: 
-            productList.sort((a, b) => a.id - b.id);
-            break;
-    }
-
-    RenderFilteredProducts();
-}
-    
-function RenderProducts() {
-    let productRow;
-
-    productRow = productContainer();
-
-    for(let c=0; c<productList.length; c++) {
-        productCard(productRow, c);
+    selectedProductList = JSON.parse(localStorage.getItem("selected_product"))
+    console.log(selectedProductList)
+    for(let i=0;i<productList.length;i++){
+        if (productList[i].id===selectedProductList.id){
+            return productList[i]
+        }   
     }
 }
 
-function productContainer() {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.createElement("div");
-
-    // Append newly created elements into the DOM
-    productsContainer.appendChild(productRow);
-
-    // Set content and attributes
-    productRow.classList.add("row");        // productRow  -->   <div class="row"></div>
-
-    return productRow;
+function getCheckoutPrices() {
+    return JSON.parse(localStorage.getItem("checkout_price"))
 }
+let CheckoutPriceList = getCheckoutPrices()
 
-function productCard(productRow, count) {
-    // Create Elements Needed to buid card
-    const productCol = document.createElement("div");   // const productRow = document.createElement("div");
-    const productLink = document.createElement("a");
-    const productImg = document.createElement("img");
-    const productName = document.createElement("h4");
-    const productPara = document.createElement("p");
+// Cart- Checkout
+const SubTotal=document.getElementsByClassName("SubTotal-Price")
+const Shipping=document.getElementsByClassName("Shipping-Price")
+const EstimatedTotal=document.getElementsByClassName("EsTotal-Price")
+let SubTotalQty=CheckoutPriceList.SubTotal
+SubTotal[0].innerText=`RM ${SubTotalQty}.00`
+Shipping[0].innerText= `Free Shipping`
+EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
 
-    // Append newly created elements into the DOM
-    productRow.appendChild(productCol);     // productCol  -->   <div class="col-4"></div>
-    productCol.appendChild(productLink);     // productLink  --> <a>
-    productLink.appendChild(productImg);     // <img>
-    productCol.appendChild(productName);     // <h4>Product Name</h4>
-    productCol.appendChild(productPara);     // <p>RM {Price}</p>
-
-    // Set content and attributes
-    productCol.classList.add("col-4");
-    productLink.setAttribute("href", `./detail.html?id=${productList[count].id}`);
-    productImg.setAttribute("src", `${productList[count].images[0]}`);
-    productName.innerText = `${productList[count].displayName}`;
-    productPara.innerText = `RM${productList[count].price}`;
-    
-    // productImg.addEventListener("click", ())
-}
-
-function RenderFilteredProducts(productList) {
-    const productsContainer = document.getElementById("products-box-container");
-    // Create Elements Needed to buid container
-    const productRow = document.getElementsByClassName("row");
-    
-
-    // Remove all child Element in the Product Container
-    while(productsContainer.firstChild) {
-        productsContainer.removeChild(productsContainer.firstChild)
-    }
-
-    RenderProducts()
-}
-
-
-RenderProducts();
-
-
-
-
-
+console.log(selectedProductList)
