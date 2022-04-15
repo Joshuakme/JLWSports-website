@@ -128,13 +128,46 @@ select#country{
 
 .checkout-right{
     width: 40%;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: space-between;
     font-size: 15px;
 }
 
-.apply, .payment {
+.Checkout-Total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+.Total{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+  
+.CheckoutPrice{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.CheckoutPrice p{
+    text-align: right;
+    width: 100%;
+}
+
+.Total p{
+    text-align: left;
+    width: 100%;
+}
+
+.payment {
     background-color: var(--border-grey);
     border: none;
     color: var(--theme-red);

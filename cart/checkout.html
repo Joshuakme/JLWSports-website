@@ -7,19 +7,19 @@
     <meta name="description" content="JLWSprots Malaysia Official Online Store">
     <meta name="keywords" content="JWLS, Sports, Online Store">
     <title>Checkout | JLWSports</title>
-    <link rel="icon" type="image/x-icon" href="./assets/img/nav_logo.png">
+    <link rel="icon" type="image/x-icon" href="../assets/img/nav_logo.png">
         <!-- Font Awesome cdnjs -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/base.css">
     <!-- Checkout Styles -->
-    <link rel="stylesheet" href="./assets/css/checkout.css" /> 
+    <link rel="stylesheet" href="../assets/css/checkout.css" /> 
 
 </head>
 <body>
     <header>      
         <nav>   
-            <img src="./assets/img/nav_logo.png" alt="JLWS Logo">      
+            <img src="../assets/img/nav_logo.png" alt="JLWS Logo">      
             <ul class="navLink-wrapper">
                 <li><a href="#index.html">Home</a></li>
                 <li><a href="#product/product.html">Product</a></li>
@@ -28,7 +28,7 @@
                 <li><a href="#cart/cart.html">Cart</a></li>
             </ul>
             <!-- <input type="text" name="" id=""> -->
-            <img id="search-btn" src="./assets/img/icons/search.svg" alt="search-icon">
+            <img id="search-btn" src="../assets/img/icons/search.svg" alt="search-icon">
         </nav>
     </header>
 
@@ -102,23 +102,32 @@
 
       <div class="checkout-right">
           <h1>ORDER DETAILS</h1>
-          <hr>
-        <!-- PRODUCT DETAILS (add in afterwards) -->
-        <hr>
-        <p><strong>Apply a Promo Code</strong></p>
-            <form id="promo-codes">
-                <label for="promo"></label>
-                <input type="text" placeholder="Insert a Promo Code" name="promo" id="promo">
-                <button class="apply">APPLY</button>
+          <div class="Checkout-Total">
+            <div class="Total">
+                <p class="SubTotal">Sub Total</p>
+                <p class="Shipping">Shipping Costs</p>
+                <p class="EsTotal">Estimated Total</p>
+            </div>
 
-        <p>Sub Total</p>
-        <p>Shipping Costs</p>
-        <p><strong>Estimated Total</strong></p>
-        <p>Please note that our estimated delivery lead times are as follow:</p>
-        <p><strong>Klang Valley - </strong> 3 to 5 working days</p>
-        <p><strong>Peninsular - </strong>5 to 7 working days</p>
-        <p><strong>Sabah/Sarawak - </strong>9 to 13 working days</p>
-        <button class="payment"><i class="fa-solid fa-credit-card"></i>&nbsp;CONTINUE TO PAYMENT</button>
+            <div class="CheckoutPrice">
+                <p class="SubTotal-Price"></p>
+                <p class="Shipping-Price"></p>
+                <p class="EsTotal-Price"></p>
+            </div>
+        </div>
+        
+            <div class="Notice">
+                <p>Please note that our estimated delivery lead times are as follow:</p>
+                <p><strong>Klang Valley - </strong> 3 to 5 working days</p>
+                <p><strong>Peninsular - </strong>5 to 7 working days</p>
+                <p><strong>Sabah/Sarawak - </strong>9 to 13 working days</p>
+                <button class="payment"><i class="fa-solid fa-credit-card"></i>&nbsp;CONTINUE TO PAYMENT</button>
+            </div>
+        
          </div>
     </section>
 
+        <!-- Link JS Here -->
+        <script src="../assets/js/checkout.js"></script>
+        </body>
+        </html>
