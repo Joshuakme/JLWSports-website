@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>FAQpage</title>
+    <title>FAQ | JLWSports Malaysia</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/nav_logo.png">
     <!-- Link Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,13 +26,13 @@
           <ul class="navLink-wrapper">
               <li><a href="/" class="nav-link">Home</a></li>
               <div class="div-line"></div>
-              <li><a href="./product/product.html" class="nav-link">Product</a></li>
+              <li><a href="../product/product.html" class="nav-link" target="_self">Product</a></li>
               <div class="div-line"></div>
-              <li><a href="./support/support.html" class="nav-link">Support</a></li>
+              <li><a href="../support/support.html" class="nav-link" target="_self">Support</a></li>
               <div class="div-line"></div>
-              <li><a href="aboutUs.html" class="nav-link">About Us</a></li>
+              <li><a href="../aboutUs.html" class="nav-link" target="_self">About Us</a></li>
               <div class="div-line"></div>
-              <li><a href="/cart/cart.html" class="nav-link">Cart</a></li>
+              <li><a href="../cart/cart.html" class="nav-link" target="_self">Cart</a></li>
               <div class="div-line"></div>
           </ul>
           <!-- <input type="text" name="" id=""> -->
@@ -214,17 +214,22 @@
             Still cant find what you looking for? <br>
             We're here to help
           </p>
+          
           <div class="contact-btn-wrapper">
-            <div class="contact-btn">
-              <p>
-                Call us
-              </p>
-            </div>
-            <div class="contact-btn">
-              <p>
-                Email to us
-              </p>
-            </div>
+            <a href="tel:60107753661">
+              <div class="contact-btn">
+                <p href="tel:+60 107753661">
+                  Call us
+                </p>
+              </div>
+            </a>
+            <a href="mailto:jlwsportmy@gmail.com">
+              <div class="contact-btn" href="">
+                <p>
+                  Email to us
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -259,25 +264,18 @@
                     <h2 id="footer-navLinks">Navigation Links</h2>
                     <ul class="footer-navlink-links">
                         <div class="footer-nav">
-                            <li><a href="#index.html">Home</a></li>
-                            <li><a href="#product/product.html">Product</a></li>     
+                            <li><a href="/" target="_self">Home</a></li>
+                            <li><a href="../product/product.html" target="_self">Product</a></li>     
                         </div>
                         <div class="footer-nav">
-                            <li><a href="#support/support.html">Support</a></li>
-                            <li><a href="#aboutUs.html">About Us</a></li>
+                            <li><a href="../support/support.html" target="_self">Support</a></li>
+                            <li><a href="../aboutUs.html" target="_self">About Us</a></li>
                         </div>
                         
                         <div class="footer-nav">
-                            <li><a href="#cart/cart.html">Cart</a></li>
+                            <li><a href="../cart/cart.html" target="_self">Cart</a></li>
                         </div>
                     </ul>
-                </div>
-
-                <div class="footer-payment-options">
-                    <div id="paypal">
-
-                    </div>
-
                 </div>
             </div>
 
@@ -287,6 +285,7 @@
         <p id="copyright">Copyright &copy 2022 <span id="footer-logo">JLWSports</span></p>
     </footer>
 
+    <script src="../assets/js/base.js"></script>
     <script src="../assets/js/faq.js"></script>
   </body>
 </html>

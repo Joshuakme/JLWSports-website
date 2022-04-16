@@ -14,7 +14,7 @@ const productList = [
         size: ukSize,
         quantity: 30,
         images: ["../assets/img/product/nike/nike1a.jpg", 
-                "../assetsimg/product/nike/nike1a-gallery.jpg",
+                "../assets/img/product/nike/nike1a-gallery.jpg",
                 "../assets/img/product/nike/nike1b.jpg", 
                 "../assets/img/product/nike/nike1b-gallery.jpg",
                 "../assets/img/product/nike/nike1c.jpg", 
@@ -247,13 +247,6 @@ const productList = [
 ]
 
 
-const productDetaiLWrapper = document.getElementById('product-detail-container');
-// Email Loading Modal
-const emailModalDiv = document.createElement('div');
-const modalLoadingSpan = document.createElement('span');
-const loadingText = document.createElement('p');
-const loadingSpinner = document.createElement('div');
-
 let selectedId;
 let selectedProduct;
 let selectedProductName;
@@ -263,7 +256,16 @@ let selectedQty;
 
 const params = new URLSearchParams(window.location.search);
 if(params.has("id")) {
-    selectedId = parseInt(params.get("id"));
+    let id;
+    id = parseInt(params.get("id"));
+    if(id >= 1 && id <= 12) {
+        selectedId = parseInt(params.get("id"));
+    } else {
+        alert("404 Error!!! Product not Found");
+        location.href = "/product/product.html";
+    }
+} else {
+
 }
 
 // Get the selected product ID
@@ -317,67 +319,44 @@ qtySelect.addEventListener("change", (e) => {
 
 addToCartButton[0].addEventListener("click", () => {
     if(selectedId != undefined && selectedId != "" && selectedSize != undefined && selectedSize != "default" && selectedSize != "" && (selectedQty >= 0 && selectedQty <= selectedProduct.quantity)) {
-        loadLoadingModal();
         localStorage.setItem("selected_product", JSON.stringify({id: selectedId, size: selectedSize, qty: selectedQty}));
+        alert(`You have added to cart!!! Please checkout there...`);
     } else {
         alert("Plese fill in the field!!!")
     }
 })
 
 
-function loadLoadingModal() {
-    // Add Loading Modal to let user indicate the process is still going
-        // Create Modal div <div class="modal" id="email-sub-modal"></div>
-    emailModalDiv.classList.add("modal");
-    emailModalDiv.id = "email-sub-modal";
-    productDetaiLWrapper.appendChild(emailModalDiv);
 
-    const emailSubModal = document.getElementById('email-sub-modal');
 
-    // Create Modal span <span class="loadingBox" id="email-sub-modal-loading"></span>
-    modalLoadingSpan.classList.add("loadingBox");
-    modalLoadingSpan.id = "email-sub-modal-loading";
-    emailSubModal.appendChild(modalLoadingSpan);
-
-    // Create Modal paragraph <p class="loadingText">Loading...</p>
-    loadingText.classList.add("loadingText");
-    loadingText.innerText = "Loading..."
-    modalLoadingSpan.appendChild(loadingText);
-
-    // Create Modal Loading Spinner
-    loadingSpinner.classList.add("loadingSpinner");
-    modalLoadingSpan.appendChild(loadingSpinner);
-
-    setTimeout(closeLoadingModal, 1500);    
+productViewImg[0].onclick = function()
+{
+    productImg.src = productViewImg [0].src;
+}
+productViewImg[1].onclick = function()
+{
+    productImg.src = productViewImg [1].src;
+}
+productViewImg[2].onclick = function()
+{
+    productImg.src = productViewImg [2].src;
+}
+productViewImg[3].onclick = function()
+{
+    productImg.src = productViewImg [3].src;
 }
 
 
-function closeLoadingModal() {
-    emailModalDiv.remove();
-    modalLoadingSpan.remove();
-    loadingText.remove();
+const selectionContainer = document.getElementById("selection");
+const productName = document.getElementById("product-name");
+const productPrice = document.getElementById("product-price");
+const selectElement = document.createElement("select");
+const optionElement = document.createElement("option");
 
-    // Display Success Message
-    alert(`You have added to cart!!! Please checkout there...`);
+productName.innerText = selectedProduct.name;
+productPrice.innerText = `RM${selectedProduct.price}.00`;
 
-}
+selectionContainer.appendChild(selectElement);
+selectElement.id = "product-size-choice";
 
 
-
-
-// productViewImg[0].onclick = function()
-// {
-//     productImg.src = productViewImg [0].src;
-// }
-// productViewImg[1].onclick = function()
-// {
-//     productImg.src = productViewImg [1].src;
-// }
-// productViewImg[2].onclick = function()
-// {
-//     productImg.src = productViewImg [2].src;
-// }
-// productViewImg[3].onclick = function()
-// {
-//     productImg.src = productViewImg [3].src;
-// }
