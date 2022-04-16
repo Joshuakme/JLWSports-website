@@ -34,7 +34,7 @@ const productList = [
         size: ukSize,
         quantity: 50,
         images: ["../assets/img/product/newbalance/nb1a.jpg", 
-                "../assets/img/product/newbalance/nb1a-gallery.jpg",
+                "../assetsimg/product/newbalance/nb1a-gallery.jpg",
                 "../assets/img/product/newbalance/nb1b.jpg", 
                 "../assets/img/product/newbalance/nb1b-gallery.jpg",
                 "../assets/img/product/newbalance/nb1c.jpg", 
@@ -336,3 +336,18 @@ productViewImg[3].onclick = function()
 {
     productImg.src = productViewImg [3].src;
 }
+
+
+const selectionContainer = document.getElementById("selection");
+const productName = document.getElementById("product-name");
+const productPrice = document.getElementById("product-price");
+const selectElement = document.createElement("select");
+const optionElement = document.createElement("option");
+
+productName.innerText = selectedProduct.name;
+productPrice.innerText = `RM${selectedProduct.price}.00`;
+
+selectionContainer.appendChild(selectElement);
+selectElement.id = "product-size-choice";
+
+
