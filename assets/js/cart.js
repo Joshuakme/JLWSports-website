@@ -332,7 +332,7 @@ const EstimatedTotal=document.getElementsByClassName("EsTotal-Price")
 let SubTotalQty=updatedSelectedProduct.price * selectedProductList.qty
 
 SubTotal[0].innerText=`RM ${SubTotalQty}.00`
-Shipping[0].innerText= `Free Shipping`
+Shipping[0].innerText= `RM 0.00`
 EstimatedTotal[0].innerText=`RM ${SubTotalQty + 0}.00`
 
 //Checkout Button

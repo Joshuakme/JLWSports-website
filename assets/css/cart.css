@@ -18,9 +18,10 @@
 
 .cart{
     width:80vw;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
 }
 
 .cart h1{
@@ -30,6 +31,7 @@
 .MyCart{
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .cart-product{
@@ -37,15 +39,22 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
+}
+
+.cart-product h1{
+font-size: 15px;
+width: 100%;
 }
 
 .cart-product img{
   width:280px;
   height:180px;
-  position:absolute;
-  top:150px;
-  left:50px;
   margin:40px;
+}
+
+.cart-product .CartDetail{
+  margin-top: 40px;
 }
 
 .deletebutton{
@@ -68,8 +77,8 @@ transform: translateY(-5px);
 }
 
 .cart-checkout p{
-  width: 40%;
-  margin:50px;
+  width: 60%;
+  margin:10px 50px;
   font-size: 15px;
 }
 
@@ -99,17 +108,74 @@ transform: translateY(-5px);
   justify-content: flex-start;
   align-items: center;
   }
+.EsTotal{
+font-weight: 600;
+}
 
-.applyCart,.check {
+#promo-codes{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+
+#promo{
+  padding: 8px 20px;
+  margin: 10px 0;
+  flex: 1;
+}
+
+#promo:placeholder-shown{
+  font-weight: 600;
+}
+
+.applyCart,.check, #promo-codes {
     background-color: var(--border-grey);
     border: none;
     color: var(--theme-red);
     padding: 8px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     font-weight: 800;
     margin: 10px 15px;
     cursor: pointer;
+  }
+
+  .applyCart{
+    margin-right: 0;
+  }
+
+  #promo-codes{
+    background-color: white;
+    padding: 0;
+  }
+  @media (max-width: 750px){
+    .MyCart {
+      width: 100%;
+        flex-direction: column;
+        margin: auto;
+    }
+
+.cart-product{
+  align-items: center;
+  width: 100%;
+}
+
+.cart-product h1{
+  font-size: 15px;
+  width: 100%;
+  }
+  
+.CartDetail{
+width:100%;
+}
+
+.cart-product img{
+  width:100px;
+  height:150px;
+  margin:40px;
+}
+    .cart-checkout, .Checkout-Total, .CheckoutPrice{
+        width: 100%;
+    }
   }
