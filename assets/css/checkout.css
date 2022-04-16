@@ -54,7 +54,7 @@
     margin-left:7%;
 }
 
-form{
+#checkout-address{
     width:100%;
     margin:0 auto;
     display: flex;
@@ -144,6 +144,12 @@ select#country{
     margin: 4px auto;
     margin-bottom: 50px;
     cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .payment:hover{
+    color: white;
+    background-color: var(--theme-red);
   }
 
   @media (max-width: 750px){
