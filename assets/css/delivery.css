@@ -1,0 +1,55 @@
+:root {
+    --theme-yellow: #e2cc4e;
+    --theme-red: #c30032;
+    --border-grey: rgb(235, 235, 235);
+    --div-grey: rgba(207, 202, 202, 0.719);
+  }
+
+.split-left{
+    float: left;
+    width: 230px;
+    height: 100%;
+
+  }
+
+  .split-left h1{
+    font-size: 18px;
+    margin: 10px;
+  }
+  
+  .split-left li{
+    margin: 20px;
+    height: 40px;
+    border-bottom: 1px solid var(--div-grey);
+  }
+
+  .split-left a:hover{
+    color: red;
+  }
+
+  .split-right{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+  }
+  
+
+
+.delivery h2{
+    margin: 20px;
+}
+
+.delivery p{
+    margin: 20px 30px;
+}
+
+@media (max-width: 750px){
+    .split-left, .split-right {
+        flex-direction: column;
+        margin: auto;
+    }
+  
+    .yellow-container{
+        width: 100%;
+    }
+  }
