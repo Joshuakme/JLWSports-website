@@ -70,6 +70,7 @@ nav .navLink-wrapper {
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
+  z-index: 9;
 }
 
 nav ul li {
@@ -346,7 +347,9 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 
 /* Mobile Size Menu Slide from right to left */
 .menu-triggered {
-  left: 0;
+  /* left: 0; */
+  transform: translateX(-120%);
+  background-color: #c30032;
 }
 
 .overflow-hidden {
@@ -492,7 +495,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
     align-items: center;
     justify-content: flex-start;
     transition: 0.3s;
-    z-index: 3;
+    z-index: 9;
     height: 90vh;
   }
 
