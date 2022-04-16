@@ -154,7 +154,7 @@ select#country{
 
   @media (max-width: 750px){
       .checkout {
-          flex-direction: column;
+          flex-direction: row;
           margin: auto;
       }
 
