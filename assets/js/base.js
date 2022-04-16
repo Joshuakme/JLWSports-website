@@ -56,6 +56,7 @@
     });
     
     hamburger.addEventListener('click', (e) => {
+        const payPalButton = document.getElementById("paypal");
         // First Hamburger Bar
         hamburgerBar[1].classList.toggle('btn1-triggered');
         // Second Hamburger Bar
@@ -66,6 +67,8 @@
         navMenu.classList.toggle("menu-triggered");
 
         body[0].classList.toggle("overflow-hidden");
+
+        payPalButton.classList.toggle("paypal-triggered");
     });
 
 

@@ -349,7 +349,6 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 .menu-triggered {
   /* left: 0; */
   transform: translateX(-120%);
-  background-color: #c30032;
 }
 
 .overflow-hidden {
@@ -459,6 +458,10 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.paypal-triggered {
+  display: none;
 }
 
 /* Tablet Size */
