@@ -364,6 +364,42 @@ function closeLoadingModal() {
 
 
 
+// You May Like Part
+
+const col4List = document.getElementsByClassName("col-4");
+console.log(col4List)
+for(let i=0; i<col4List.length; i++) {
+    addRecommendProduct(i);
+}
+
+function addRecommendProduct(i) {
+    let filteredProductList;
+
+    filteredProductList = productList.filter((product) => (
+        product.type === selectedProduct.type
+    ))
+
+    console.log(filteredProductList)
+
+    let index = Math.floor(Math.random() * filteredProductList.length);
+
+    // Add Image
+    const productImg = document.createElement("img");
+    productImg.setAttribute("src", `${filteredProductList[index].images[0]}`)
+    col4List[i].appendChild(productImg);
+
+    // Add Product Name
+    const productName = document.createElement("h4");
+    productName.innerText = `${filteredProductList[index].name}`;
+    col4List[i].appendChild(productName);
+
+    // Add Product Price
+    const productPrice = document.createElement("p");
+    productPrice.innerText = `${filteredProductList[index].price}`;
+    col4List[i].appendChild(productPrice);
+}
+
+
 
 // productViewImg[0].onclick = function()
 // {
