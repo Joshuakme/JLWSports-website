@@ -5,9 +5,11 @@
     --div-grey: rgba(207, 202, 202, 0.719);
 }
 
-.small-container {
+.product-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 90vw;
     margin: auto;
     padding-left: 25px;
@@ -25,7 +27,8 @@
     justify-content: flex-end;
     width: 100%;
     text-align: right;
-    margin: 20px auto;    
+    margin: 20px auto;   
+    margin-right: 10px; 
 }
 
 select {  
@@ -47,11 +50,13 @@ select:hover {
 }
 
 #products-box-container .row {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .col-2 {
@@ -62,20 +67,25 @@ select:hover {
 .col-4 {
     /* flex-basis: 25px; */
     padding: 10px;
-    max-width: 25%;
     margin-bottom: 50px;
     transition: 0.5s;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .col-4 a {
     height: 100%;
     width: 100%;
+    display: flex;
 }
 
-.col-4 img {
+.col-4 a img {
     width: 290px;
     height: 290px;
+    justify-content: center;
 }
 
 .products-title {
@@ -84,6 +94,7 @@ select:hover {
     position: relative;
     line-height: 60px;
     color: #555;
+    z-index: -1;
 }
 
 .products-title::after {
@@ -139,71 +150,5 @@ h4 {
 .page-but span:hover {
     background: #c30032;
     color: white;
-}
-
-.product-detail {
-    margin-top: 60px;
-}
-
-.product-detail .col-2 img {
-    padding: 0;
-}
-
-.product-detail .col-2 {
-    padding: 20px;
-}
-
-.product-detail h4 {
-    margin: 20px 0;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.add-to-cart-btn {
-    display: inline-block;
-    background: #c30032;
-    color: white;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border: 30px #c30032;
-    text-decoration: none;
-}
-
-.product-detail select {
-    display: block;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.product-detail input {
-    width: 50px;
-    height: 40px;
-    padding-left: 10px;
-    font-size: 20px;
-    margin-right: 10px;
-    border: 1px solid #c30032;
-}
-
-input:focus {
-    outline: none;
-}
-
-.product-view-row {
-    display: flex;
-    justify-content: space-between;
-}
-
-.product-view-col {
-    flex-basis: 24%;
-    cursor: pointer;
-}
-
-.row-2 {
-    justify-content: space-between;
-    margin: 100px auto 50px;
-}
-
-.product-view-col img {
-    height: 90px;
 }
 
