@@ -304,7 +304,7 @@ main.index-layout {
     position: static;
     float: left;
     padding: 50px 0 0 50px;
-    width: 60vw;
+    width: 70vw;
     font-size: 1.8em;
   }
 
@@ -312,8 +312,8 @@ main.index-layout {
     position: static;
     float: right;
     padding: 50px 60px 0 0;
-    width: 60vw;
-    font-size: 1.8em;
+    width: 70vw;
+    font-size: 2.0em;
   }
 
   .image-caption-center{
