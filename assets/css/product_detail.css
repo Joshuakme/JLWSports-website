@@ -177,16 +177,20 @@ div#selection .add-to-cart-btn:hover {
     margin: auto;
 }
 
+.recommend-col:hover {
+    transform: scale(1.05);
+}
+
 .recommend-col {
     cursor: pointer;
     transition: 0.2s;
 }
 
-.recommend-col:hover {
+.recommend-col-link:hover {
     transform: scale(1.05);
 }
 
-.recommend-col img {
+.recommend-col-link img {
     height: 200px;
     width: 200px;
     object-fit: cover;

@@ -410,7 +410,7 @@ for(let i=0; i<productViewImg.length; i++) {
 
 // You May Like Part
 
-const col4List = document.getElementsByClassName("col-4");
+const col4List = document.getElementsByClassName("col-4-link");
 for(let i=0; i<col4List.length; i++) {
     addRecommendProduct(i);
 }
@@ -423,6 +423,10 @@ function addRecommendProduct(i) {
     ))
 
     let index = Math.floor(Math.random() * filteredProductList.length);
+
+    // Add Image Link
+    // filteredProductList[index].
+    col4List[i].setAttribute("href", `../product/detail.html?id=${filteredProductList[index].id}`)
 
     // Add Image
     const productImg = document.createElement("img");
