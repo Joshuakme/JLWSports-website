@@ -87,6 +87,7 @@ font-size: 0.9rem;
   .contact-info, .address {
       flex-direction: row;
       margin: auto;
+
   }
 
   .row, .column, .yellow-container{
