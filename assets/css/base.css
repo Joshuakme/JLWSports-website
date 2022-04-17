@@ -460,6 +460,10 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
   100% { transform: rotate(360deg); }
 }
 
+.paypal-triggered {
+  display: none;
+}
+
 /* Tablet Size */
 @media (max-width: 1000px) {
   /* Navigation Bar */

@@ -1,5 +1,5 @@
 // Define Products Attribute
-const ukSize = ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"];
+const ukSize = ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "12.5", "13", "13.5", "14", "14.5", "15", "16", "17", "18", "19", " 20 "];
 const clothingSize = ["XS", "S", "M", "L", "XL", "XXL"];
 
 // Define Products
@@ -327,8 +327,36 @@ addToCartButton[0].addEventListener("click", () => {
 })
 
 
+// Dynamic Value for Displaying Product Name and Price
+const selectionContainer = document.getElementById("selection");
+const productName = document.getElementById("product-name");
+const productPrice = document.getElementById("product-price");     
+
+productName.innerText = selectedProduct.name;
+productPrice.innerHTML = `<span>RM</span> ${selectedProduct.price}.00`;
+
+let productSize;
+if(selectedProduct.type === "clothing") {
+    productSize = selectedProduct.size;
+} else if(selectedProduct.type === "footwear") {
+    productSize = selectedProduct.size;
+} else {
+    alert("")
+}
+for(let i=0; i<productSize.length; i++) {
+    createOption(i); 
+}
+
+function createOption(index) {
+    const optionElement = document.createElement("option");
+    sizeSelect.appendChild(optionElement);
+    optionElement.innerText = `${selectedProduct.size[index]}`
+    optionElement.value = `${selectedProduct.size[index]}`
+
+}
 
 
+// Link the selected active Image to big image view
 productViewImg[0].onclick = function()
 {
     productImg.src = productViewImg [0].src;
@@ -346,23 +374,43 @@ productViewImg[3].onclick = function()
     productImg.src = productViewImg [3].src;
 }
 
+let notSelectedImgList = [0, 1, 2, 3];
 
-const selectionContainer = document.getElementById("selection");
-const productName = document.getElementById("product-name");
-const productPrice = document.getElementById("product-price");
-const selectElement = document.createElement("select");
-const optionElement = document.createElement("option");
+for(let i=0; i<productViewImg.length; i++) {
+    notSelectedImgList = [...notSelectedImgList, i];
+}
+console.log(notSelectedImgList)
 
-productName.innerText = selectedProduct.name;
-productPrice.innerText = `RM${selectedProduct.price}.00`;
+for(let i=0; i<productViewImg.length; i++) {
+    notSelectedImgList 
+    productViewImg[i].addEventListener("click", () => {
+        productViewImg[i].classList.add("active-detail-img");
 
-selectionContainer.appendChild(selectElement);
-selectElement.id = "product-size-choice";
+        if(i === 0) {
+            productViewImg[1].classList.remove("active-detail-img");
+            productViewImg[2].classList.remove("active-detail-img");
+            productViewImg[3].classList.remove("active-detail-img");
+        } else if(i === 1) {
+            productViewImg[0].classList.remove("active-detail-img");
+            productViewImg[2].classList.remove("active-detail-img");
+            productViewImg[3].classList.remove("active-detail-img");
+        } else if(i === 2) {
+            productViewImg[0].classList.remove("active-detail-img");
+            productViewImg[1].classList.remove("active-detail-img");
+            productViewImg[3].classList.remove("active-detail-img");
+        } else if(i === 3) {
+            productViewImg[0].classList.remove("active-detail-img");
+            productViewImg[1].classList.remove("active-detail-img");
+            productViewImg[2].classList.remove("active-detail-img");
+        }
+            
+    })
+}
+
 
 // You May Like Part
 
 const col4List = document.getElementsByClassName("col-4");
-console.log(col4List)
 for(let i=0; i<col4List.length; i++) {
     addRecommendProduct(i);
 }
@@ -374,8 +422,6 @@ function addRecommendProduct(i) {
         product.type === selectedProduct.type
     ))
 
-    console.log(filteredProductList)
-
     let index = Math.floor(Math.random() * filteredProductList.length);
 
     // Add Image
@@ -385,12 +431,12 @@ function addRecommendProduct(i) {
 
     // Add Product Name
     const productName = document.createElement("h4");
-    productName.innerText = `${filteredProductList[index].name}`;
+    productName.innerText = `${filteredProductList[index].displayName}`;
     col4List[i].appendChild(productName);
 
     // Add Product Price
     const productPrice = document.createElement("p");
-    productPrice.innerText = `${filteredProductList[index].price}`;
+    productPrice.innerText = `RM ${filteredProductList[index].price}`;
     col4List[i].appendChild(productPrice);
 }
 

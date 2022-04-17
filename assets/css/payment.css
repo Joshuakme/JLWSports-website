@@ -67,13 +67,16 @@
 }
 
 .payment {
+    position: relative;
     display: flex;
     justify-content: center;
+    z-index: 0;
 }
 
-#paypal {
+#paypal { 
     margin-top: 15px;
     width: 70vw;
     display: flex;
     justify-content: center;
+    
 }
