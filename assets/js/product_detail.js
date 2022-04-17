@@ -1,5 +1,5 @@
 // Define Products Attribute
-const ukSize = ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"];
+const ukSize = ["6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "12.5", "13", "13.5", "14", "14.5", "15", "16", "17", "18", "19", " 20 "];
 const clothingSize = ["XS", "S", "M", "L", "XL", "XXL"];
 
 // Define Products
@@ -349,15 +349,30 @@ productViewImg[3].onclick = function()
 
 const selectionContainer = document.getElementById("selection");
 const productName = document.getElementById("product-name");
-const productPrice = document.getElementById("product-price");
-const selectElement = document.createElement("select");
-const optionElement = document.createElement("option");
+const productPrice = document.getElementById("product-price");     
 
 productName.innerText = selectedProduct.name;
 productPrice.innerText = `RM${selectedProduct.price}.00`;
 
-selectionContainer.appendChild(selectElement);
-selectElement.id = "product-size-choice";
+let productSize;
+if(selectedProduct.type === "clothing") {
+    productSize = selectedProduct.size;
+} else if(selectedProduct.type === "footwear") {
+    productSize = selectedProduct.size;
+} else {
+    alert("")
+}
+for(let i=0; i<productSize.length; i++) {
+    createOption(i); 
+}
+
+function createOption(index) {
+    const optionElement = document.createElement("option");
+    sizeSelect.appendChild(optionElement);
+    optionElement.innerText = `${selectedProduct.size[index]}`
+    optionElement.value = `${selectedProduct.size[index]}`
+
+}
 
 // You May Like Part
 
