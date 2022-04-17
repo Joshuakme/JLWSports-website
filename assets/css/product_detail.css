@@ -221,7 +221,7 @@ div#selection .add-to-cart-btn:hover {
 
 @media (max-width: 400px) {
     #productImg {
-        width: 50px;
+        width: 121px;
         height: 191px;
         /* width: 830px; */
         /* height: 530px; */
@@ -247,5 +247,13 @@ div#selection .add-to-cart-btn:hover {
     div#selection #product-price {
         font-size: 20px;
         margin-bottom: 30px;
+    }
+
+
+    .recommend-col-link img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border: 1px solid var(--border-grey);
     }
 }
