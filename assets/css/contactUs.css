@@ -23,6 +23,10 @@
   border-bottom: 1px solid var(--div-grey);
 }
 
+.split-left a {
+  height: 40px;
+}
+
 .split-left a:hover{
   color: red;
 }
