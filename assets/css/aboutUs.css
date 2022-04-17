@@ -1,0 +1,117 @@
+:root {
+    --theme-yellow: #e2cc4e;
+    --theme-red: #c30032;
+    --border-grey: rgb(235, 235, 235);
+    --div-grey: rgba(207, 202, 202, 0.719);
+}
+
+.content-wrapper {
+    max-width: 50vw;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh auto;
+}
+
+.content-wrapper #about-us-title {
+    text-align: center;
+    font-size: 35px;
+}
+
+/* About Shop */
+.about-shop h2 {
+    margin-bottom: 10px;
+}
+
+.about-shop p {
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.about-shop p span#brand-name {
+    font-weight: 600;
+    color: var(--theme-red);
+    font-size: 22px;
+}
+
+.about-shop p span {
+    font-weight: 600;
+}
+
+.about-shop p i {
+    font-weight: 600;
+}
+
+/* Dev Team Section */
+.dev-team {
+    margin-top: 30px;
+}
+
+.about-container {
+    display: flex;
+    margin: 10px auto;
+}
+
+
+.about-container img {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.about-container img:hover {
+    transform: scale(1.05);
+}
+
+.about-container .about-detail {
+    height: 100%;
+}
+
+.about-detail h1, .about-detail h3, .about-detail p {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.about-detail h1 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.about-detail h3 {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.about-detail h3 span {
+    font-weight: 600;
+    color: var(--theme-red);
+}
+
+.about-detail p {
+    font-weight: 600;
+}
+
+.about-detail p span {
+    font-weight: 600;
+    color: var(--theme-red);
+}
+
+.about-detail .fun-fact {
+    font-weight: 500;
+}
+
+.about-div-line {
+    width: 100%;
+    border-top: 1px solid rgb(235, 235, 235);
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+@media (max-width: 750px) {
+    .content-wrapper {
+        max-width: 90vw;
+    }
+}

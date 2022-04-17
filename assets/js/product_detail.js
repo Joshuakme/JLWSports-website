@@ -14,7 +14,7 @@ const productList = [
         size: ukSize,
         quantity: 30,
         images: ["../assets/img/product/nike/nike1a.jpg", 
-                "../assetsimg/product/nike/nike1a-gallery.jpg",
+                "../assets/img/product/nike/nike1a-gallery.jpg",
                 "../assets/img/product/nike/nike1b.jpg", 
                 "../assets/img/product/nike/nike1b-gallery.jpg",
                 "../assets/img/product/nike/nike1c.jpg", 
@@ -34,7 +34,7 @@ const productList = [
         size: ukSize,
         quantity: 50,
         images: ["../assets/img/product/newbalance/nb1a.jpg", 
-                "../assetsimg/product/newbalance/nb1a-gallery.jpg",
+                "../assets/img/product/newbalance/nb1a-gallery.jpg",
                 "../assets/img/product/newbalance/nb1b.jpg", 
                 "../assets/img/product/newbalance/nb1b-gallery.jpg",
                 "../assets/img/product/newbalance/nb1c.jpg", 
@@ -256,7 +256,16 @@ let selectedQty;
 
 const params = new URLSearchParams(window.location.search);
 if(params.has("id")) {
-    selectedId = parseInt(params.get("id"));
+    let id;
+    id = parseInt(params.get("id"));
+    if(id >= 1 && id <= 12) {
+        selectedId = parseInt(params.get("id"));
+    } else {
+        alert("404 Error!!! Product not Found");
+        location.href = "/product/product.html";
+    }
+} else {
+
 }
 
 // Get the selected product ID
