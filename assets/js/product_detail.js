@@ -327,32 +327,13 @@ addToCartButton[0].addEventListener("click", () => {
 })
 
 
-
-
-productViewImg[0].onclick = function()
-{
-    productImg.src = productViewImg [0].src;
-}
-productViewImg[1].onclick = function()
-{
-    productImg.src = productViewImg [1].src;
-}
-productViewImg[2].onclick = function()
-{
-    productImg.src = productViewImg [2].src;
-}
-productViewImg[3].onclick = function()
-{
-    productImg.src = productViewImg [3].src;
-}
-
-
+// Dynamic Value for Displaying Product Name and Price
 const selectionContainer = document.getElementById("selection");
 const productName = document.getElementById("product-name");
 const productPrice = document.getElementById("product-price");     
 
 productName.innerText = selectedProduct.name;
-productPrice.innerText = `RM${selectedProduct.price}.00`;
+productPrice.innerHTML = `<span>RM</span> ${selectedProduct.price}.00`;
 
 let productSize;
 if(selectedProduct.type === "clothing") {
@@ -374,10 +355,62 @@ function createOption(index) {
 
 }
 
+
+// Link the selected active Image to big image view
+productViewImg[0].onclick = function()
+{
+    productImg.src = productViewImg [0].src;
+}
+productViewImg[1].onclick = function()
+{
+    productImg.src = productViewImg [1].src;
+}
+productViewImg[2].onclick = function()
+{
+    productImg.src = productViewImg [2].src;
+}
+productViewImg[3].onclick = function()
+{
+    productImg.src = productViewImg [3].src;
+}
+
+let notSelectedImgList = [0, 1, 2, 3];
+
+for(let i=0; i<productViewImg.length; i++) {
+    notSelectedImgList = [...notSelectedImgList, i];
+}
+console.log(notSelectedImgList)
+
+for(let i=0; i<productViewImg.length; i++) {
+    notSelectedImgList 
+    productViewImg[i].addEventListener("click", () => {
+        productViewImg[i].classList.add("active-detail-img");
+
+        if(i === 0) {
+            productViewImg[1].classList.remove("active-detail-img");
+            productViewImg[2].classList.remove("active-detail-img");
+            productViewImg[3].classList.remove("active-detail-img");
+        } else if(i === 1) {
+            productViewImg[0].classList.remove("active-detail-img");
+            productViewImg[2].classList.remove("active-detail-img");
+            productViewImg[3].classList.remove("active-detail-img");
+        } else if(i === 2) {
+            productViewImg[0].classList.remove("active-detail-img");
+            productViewImg[1].classList.remove("active-detail-img");
+            productViewImg[3].classList.remove("active-detail-img");
+        } else if(i === 3) {
+            productViewImg[0].classList.remove("active-detail-img");
+            productViewImg[1].classList.remove("active-detail-img");
+            productViewImg[2].classList.remove("active-detail-img");
+        }
+            
+    })
+}
+
+
 // You May Like Part
 
 const col4List = document.getElementsByClassName("col-4");
-console.log(col4List)
 for(let i=0; i<col4List.length; i++) {
     addRecommendProduct(i);
 }
@@ -389,8 +422,6 @@ function addRecommendProduct(i) {
         product.type === selectedProduct.type
     ))
 
-    console.log(filteredProductList)
-
     let index = Math.floor(Math.random() * filteredProductList.length);
 
     // Add Image
@@ -400,12 +431,12 @@ function addRecommendProduct(i) {
 
     // Add Product Name
     const productName = document.createElement("h4");
-    productName.innerText = `${filteredProductList[index].name}`;
+    productName.innerText = `${filteredProductList[index].displayName}`;
     col4List[i].appendChild(productName);
 
     // Add Product Price
     const productPrice = document.createElement("p");
-    productPrice.innerText = `${filteredProductList[index].price}`;
+    productPrice.innerText = `RM ${filteredProductList[index].price}`;
     col4List[i].appendChild(productPrice);
 }
 
