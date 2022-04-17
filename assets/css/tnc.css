@@ -1,3 +1,10 @@
+:root {
+  --theme-yellow: #e2cc4e;
+  --theme-red: #c30032;
+  --border-grey: rgb(235, 235, 235);
+  --div-grey: rgba(207, 202, 202, 0.719);
+}
+
 .tnc-layout{
     margin: 10px 0;
     width: 100%;
@@ -15,7 +22,7 @@
   }
 
   .container h2{
-    color: #c30032;
+    color: var(--theme-red);
     margin: 30px 0;
     font-weight: 600;
   }
@@ -49,6 +56,29 @@
     margin: 10px 0;
   }
 
+  /* Table */
+  table{
+    border-collapse: collapse;
+    width: 60%;
+    margin: 0 0 20px 30px;
+  }
+
+  table, th, td{
+    border: solid 1px black;
+  }
+  
+  th, td{
+    padding: 10px;
+  }
+
+  table th{
+    background-color: var(--border-grey);
+  }
+
+  table td{
+    text-align: center;
+  }
+
   .button-container{
     text-align: center;
     margin: 20px;
@@ -60,7 +90,7 @@
     padding: 15px 20px;
     font-size: 18px;
     font-weight: 800;
-    color: #c30032;
+    color: var(--theme-red);
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -79,7 +109,7 @@
     bottom: 200px;
     right: 10px;
     z-index: 50;
-    border: 5px solid #c30032;
+    border: 5px solid var(--theme-red);
     outline: none;
     background-color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
@@ -96,12 +126,21 @@
   }
 
 @media only screen and (max-width: 1200px) {
+  table{
+    width: 80%
+  }
+
   .container{
       margin: 5vh 10vw 0 10vw;
   }
 }
 
 @media only screen and (max-width: 750px) { 
+  table {
+    width: 95%;
+    margin: 0 0 50px 0;
+  }
+  
   .container{
       margin: 5vh 20px;
   }
@@ -109,5 +148,4 @@
   #top-Button{
       display: none;
   }
-  
 }
