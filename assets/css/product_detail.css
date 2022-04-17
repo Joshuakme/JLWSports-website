@@ -43,7 +43,7 @@
 }
 
 div#selection {
-    height: 100%;
+    height: 70%;
     justify-content: space-around;
 }
 
@@ -195,4 +195,11 @@ div#selection .add-to-cart-btn:hover {
 
 .active-detail-img {
     border: 1px solid black;
+}
+
+@media (max-width: 1317px) {
+    div#selection {
+        height: 100%;
+        justify-content: space-around;
+    }
 }
