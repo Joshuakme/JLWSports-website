@@ -65,7 +65,7 @@
         // Move the menu from right to left
         navMenu.classList.toggle("menu-triggered");
 
-        body[0].classList.toggle = "overflow-hidden";
+        body[0].classList.toggle("overflow-hidden");
     });
 
 

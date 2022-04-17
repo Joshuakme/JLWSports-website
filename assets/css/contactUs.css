@@ -53,3 +53,14 @@ font-size: 0.9rem;
 .yellow-container p {
   font-size: 1.1rem;
 }
+
+@media (max-width: 750px){
+  .contact-info, .address {
+      flex-direction: column;
+      margin: auto;
+  }
+
+  .row, .column, .yellow-container{
+      width: 100%;
+  }
+}

@@ -1,0 +1,79 @@
+:root {
+    --theme-yellow: #e2cc4e;
+    --theme-red: #c30032;
+    --border-grey: rgb(235, 235, 235);
+    --div-grey: rgba(207, 202, 202, 0.719);
+  }
+
+.payment-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.payment-top {
+    font-size: 25px;
+    margin-bottom: 50px;
+    
+}
+
+.checkout-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--div-grey);
+}
+
+.checkout-summary h2 {
+    text-align: center;
+    border-bottom: 1px solid var(--div-grey);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.checkout-summary .Total .EsTotal, .EsTotal-Price {
+    font-weight: 600;
+}
+
+
+.order-summary-breakdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.Total p, .CheckoutPrice p {
+    margin: 10px auto;
+}
+
+.payment-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment {
+    display: flex;
+    justify-content: center;
+}
+
+#paypal {
+    margin-top: 15px;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+}
