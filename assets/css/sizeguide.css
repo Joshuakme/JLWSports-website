@@ -1,0 +1,92 @@
+:root {
+    --theme-yellow: #e2cc4e;
+    --theme-red: #c30032;
+    --border-grey: rgb(235, 235, 235);
+    --div-grey: rgba(207, 202, 202, 0.719);
+  }
+
+.split-left{
+    float: left;
+    width: 230px;
+    height: 100%;
+
+  }
+
+  .split-left h1{
+    font-size: 20px;
+    margin: 10px;
+  }
+  
+  .split-left li{
+    font-size: 18px;
+    margin: 18px;
+    height: 50px;
+    border-bottom: 1px solid var(--div-grey);
+  }
+
+  .split-left a:hover{
+    color: red;
+  }
+
+  .clothing h2{
+    font-size: 30px;
+    margin: 20px;
+  }
+
+  .clothing h2 p{
+    font-size: 15px;
+    margin: 20px;
+  }
+
+  .clothing h3{
+    font-size: 20px;
+    margin:10px;
+  }
+
+  .clothing table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px;
+  }
+
+  .clothing td, .clothing th {
+    border-collapse: collapse;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+  }
+
+  .clothing tr:nth-child(even) {
+    background-color: var(--border-grey);
+  }
+
+  .footwear h4{
+    font-size:20px;
+    margin:10px;
+  }
+
+  .footwear table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px;
+  }
+
+  .footwear td, .footwear th {
+    border-collapse: collapse;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+  }
+
+  .footwear tr:nth-child(even) {
+    background-color: var(--border-grey);
+  }
+
+  @media (max-width: 750px){
+    .split-left,.clothing,.footwear {
+        flex-direction: column;
+        margin: auto;
+    }
+  }
