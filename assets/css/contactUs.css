@@ -5,11 +5,17 @@
   --div-grey: rgba(207, 202, 202, 0.719);
 }
 
-.split-left{
-  float: left;
-  width: 230px;
-  height: 100%;
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  box-sizing: content-box;
+  position: relative;
+}
 
+.split-left{
+  width: 15vw;
+  height: 100%;
 }
 
 .split-left h1{
@@ -17,14 +23,28 @@
   margin: 10px;
 }
 
-.split-left li{
-  margin: 20px;
-  height: 40px;
-  border-bottom: 1px solid var(--div-grey);
+
+.split-left ul {
+  width: 100%;
 }
 
-.split-left a {
+.split-left li{
+  margin: 20px auto;
+  border-bottom: 1px solid var(--div-grey);
   height: 40px;
+  width: 100%;
+}
+
+.split-left li div {
+  height: 40px;
+  width: 100%;
+}
+
+.split-left ul li div a {
+  display: inline-block;
+  line-height: 40px;
+  width: 100%;
+  padding-left: 20px;
 }
 
 .split-left a:hover{
@@ -35,7 +55,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 70vh;
+  height: 100%;
+  flex: 1;
 }
 
 .contact-info h2,.contact-info p {
@@ -64,6 +85,7 @@ font-size: 0.9rem;
   display: flex;
   flex: 1;
   align-items: center;
+  margin-bottom: 70px;
 }
 /* Clear floats after image containers */
 .row::after {
@@ -73,6 +95,11 @@ font-size: 0.9rem;
 }
 
 .yellow-container{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: auto;
   font-size: 20px;
   display: flex;
   flex-direction: row;
@@ -80,7 +107,8 @@ font-size: 0.9rem;
   align-items: center;
   text-align: center; 
   background-color: #FEF667; 
-  height: 2.5rem;
+  min-height: 2.5rem;
+  justify-self: flex-end;
 }
 
 .yellow-container p {
@@ -88,6 +116,10 @@ font-size: 0.9rem;
 }
 
 @media (max-width: 750px){
+  .split-left{
+    width: 30vw;
+  }
+  
   .contact-info, .address {
       flex-direction: row;
       margin: auto;
