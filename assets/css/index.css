@@ -1,3 +1,10 @@
+:root {
+  --theme-yellow: #e2cc4e;
+  --theme-red: #c30032;
+  --border-grey: rgb(235, 235, 235);
+  --div-grey: rgba(207, 202, 202, 0.719);
+}
+
 main.index-layout {
   z-index: 1;
 }
@@ -32,7 +39,7 @@ main.index-layout {
   }
 
   .hero-text-left h2{
-    color: #c30032;
+    color: var(--theme-red);
     margin-top: 20px;
     font-weight: 800;
   }
@@ -52,7 +59,7 @@ main.index-layout {
   .container-yellow{
     padding: 10vh 5vw;
     margin: 5vh;
-    background-color: #ffea70;
+    background-color: var(--theme-yellow);
   }
 
   .container-yellow img{
@@ -74,7 +81,7 @@ main.index-layout {
     padding-top: 10vh;
     padding-bottom: 10vh;
     margin: 10vh;
-    background-color: #c30032;;
+    background-color: var(--theme-red);;
     position: relative;
   }
 
@@ -187,7 +194,7 @@ main.index-layout {
 
   /*image insert section*/
   .hero1{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.80), rgba(0, 0, 0, 0.5)),url(/assets/img/index/herobanner1.jpg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.80), rgba(0, 0, 0, 0.4)),url(/assets/img/index/herobanner1.jpg);
   }
 
   .hero2{
@@ -289,20 +296,23 @@ main.index-layout {
 
 @media only screen and (max-width: 750px) { 
   .hero-image{
-    padding-bottom: 100%; /*ratio with width*/
+    position: static;
+    padding-bottom:100%; /*ratio with width*/
   }
 
   .hero-text-left{
+    position: static;
+    float: left;
+    padding: 100px 0 0 50px;
     width: 60vw;
-    top: 20%;
-    left: 5%;
-    font-size: 1.6em;
+    font-size: 1.8em;
   }
 
   .hero-text-right{
+    position: static;
+    float: right;
+    padding: 100px 60px 0 0;
     width: 60vw;
-    top: 20%;
-    left: 30%;
     font-size: 1.8em;
   }
 
