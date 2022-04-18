@@ -100,7 +100,7 @@ function loadLoadingModal(e) {
     modalLoadingSpan.appendChild(loadingSpinner);
 
     // Save to LocalStorage
-    localStorage.setItem("email_sub_list", JSON.parse(emailSubList))
+    localStorage.setItem("email_sub_list", JSON.stringify(emailSubList));
 
     setTimeout(closeLoadingModal, 1500);    
 }
