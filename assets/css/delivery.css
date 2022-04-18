@@ -18,7 +18,7 @@
   }
   
   .split-left li{
-    margin: 20px;
+    margin: 18px;
     height: 40px;
     border-bottom: 1px solid var(--div-grey);
   }
@@ -32,6 +32,10 @@
     flex-direction: column;
     height: 70vh;
   }
+
+.delivery {
+  flex: 1;
+}
 
 .delivery h2{
     margin: 20px;
