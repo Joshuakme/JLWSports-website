@@ -348,7 +348,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 /* Mobile Size Menu Slide from right to left */
 .menu-triggered {
   /* left: 0; */
-  transform: translateX(-120%);
+  transform: translateX(-1200px);
 }
 
 .overflow-hidden {
@@ -490,7 +490,7 @@ footer .footer-mobile-bottom .footer-nav-links h2 {
 
   nav ul {
     position: fixed;
-    right: -120%;
+    right: -1200px;
     top: 10vh;
     flex-direction: column;
     background-color: white;
